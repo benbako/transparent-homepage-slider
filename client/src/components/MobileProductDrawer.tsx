@@ -9,6 +9,13 @@ type MobileProductDrawerProps = {
 };
 
 const ALL_PRODUCTS_URL = "https://www.ljsportstech.com/products.html";
+const QUICK_LABELS: Record<string, string> = {
+  "Sports Simulator": "Sports",
+  "Indoor Archery Range": "Archery",
+  "Indoor Shooting Range": "Shooting",
+  "Arcade Game Machine": "Arcade",
+  "Interactive Projector": "Projector",
+};
 
 function ArrowUpRight() {
   return (
@@ -24,6 +31,8 @@ export default function MobileProductDrawer({ groups, onBack, onClose }: MobileP
   const backRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
+  const quickFiltersRef = useRef<HTMLDivElement>(null);
+  const previousFilters = useRef({ query: "", category: "" });
   const id = useId();
   const searchId = `${id}-search`;
   const categoryId = `${id}-category`;
@@ -51,8 +60,31 @@ export default function MobileProductDrawer({ groups, onBack, onClose }: MobileP
 
   useEffect(() => {
     if (resultsRef.current) resultsRef.current.scrollTop = 0;
-    if (window.matchMedia("(max-height: 430px)").matches && drawerRef.current) drawerRef.current.scrollTop = 0;
+    const drawer = drawerRef.current;
+    if (window.matchMedia("(max-height: 430px)").matches && drawer) {
+      const queryChanged = previousFilters.current.query !== query;
+      const categoryChanged = previousFilters.current.category !== selectedCategory;
+      if (queryChanged) drawer.scrollTop = 0;
+      else if (categoryChanged && drawer.scrollTop > 0 && resultsRef.current) {
+        const navigationHeight = drawer.querySelector<HTMLElement>(".mobile-product-drawer__navigation")?.offsetHeight ?? 0;
+        const filtersHeight = quickFiltersRef.current?.parentElement?.offsetHeight ?? 0;
+        const resultsTop = resultsRef.current.getBoundingClientRect().top - drawer.getBoundingClientRect().top + drawer.scrollTop;
+        drawer.scrollTop = Math.max(0, resultsTop - navigationHeight - filtersHeight);
+      }
+    }
+    previousFilters.current = { query, category: selectedCategory };
   }, [query, selectedCategory]);
+
+  useEffect(() => {
+    // Keep a category chosen in the select visible in the horizontal chip row.
+    const list = quickFiltersRef.current;
+    const selected = list?.querySelector<HTMLElement>('button[aria-pressed="true"]');
+    if (!list || !selected) return;
+    const listBox = list.getBoundingClientRect();
+    const selectedBox = selected.getBoundingClientRect();
+    if (selectedBox.left < listBox.left) list.scrollLeft -= listBox.left - selectedBox.left;
+    else if (selectedBox.right > listBox.right) list.scrollLeft += selectedBox.right - listBox.right;
+  }, [selectedCategory]);
 
   function clearFilters() {
     setQuery("");
@@ -76,6 +108,27 @@ export default function MobileProductDrawer({ groups, onBack, onClose }: MobileP
             <path d="M5 5l10 10M15 5 5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           </svg>
         </button>
+      </div>
+
+      <div className="mobile-product-drawer__quick-filters">
+        <div className="mobile-product-drawer__quick-heading">
+          <span>Quick filters</span>
+          <span className="mobile-product-drawer__quick-hint" aria-hidden="true">Swipe for more →</span>
+        </div>
+        <div ref={quickFiltersRef} className="mobile-product-drawer__quick-list" role="group" aria-label="Quick filter products by category">
+          <button type="button" aria-pressed={selectedCategory === ""} onClick={() => setCategory("")}>All</button>
+          {groups.slice(0, 5).map((group, index) => (
+            <button
+              key={group.url}
+              type="button"
+              aria-label={group.name}
+              aria-pressed={selectedCategory === String(index)}
+              onClick={() => setCategory(String(index))}
+            >
+              {QUICK_LABELS[group.name] ?? group.name}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="mobile-product-drawer__controls">

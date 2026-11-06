@@ -49,3 +49,10 @@
 - [x] Preserve the desktop Products menu, all existing navigation links, shared branding and page routes; keep the mobile drawer easy to open, close and navigate by touch or keyboard, including small-height screens.
 
 The complete catalog, filtering, reset, scroll behavior and focus handling were checked across the site at narrow phone, tablet and short landscape sizes in Chromium, Firefox and WebKit. The existing desktop menu was also checked.
+
+# Mobile quick filters
+
+- [x] Add a sticky quick-filter bar for the five existing product categories inside the mobile navigation drawer, with a clear All option and a visible selected state.
+- [x] Keep the existing search, category selector, product counts, all 152 product links, keyboard and touch access, desktop navigation, and short-screen scrolling intact.
+
+The five category buttons, All reset, synchronized select and search, sticky behavior, short-screen layout, and full product-link set were checked in Chromium, Firefox and WebKit.
