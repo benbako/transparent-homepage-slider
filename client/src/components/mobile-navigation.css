@@ -1,0 +1,76 @@
+/* Mobile navigation: a single full-height drawer, separate from the desktop menu. */
+@media (max-width: 900px) {
+  .site-header { --mobile-drawer-offset: 74px; }
+  .reference-home .home-hero-shell .site-header { --mobile-drawer-offset: 70px; }
+
+  .site-header.site-header--mobile-open,
+  .reference-home .home-hero-shell .site-header.site-header--mobile-open {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #0b1822;
+  }
+  .reference-home .home-hero-shell .site-header.site-header--mobile-open { background: #fff; }
+
+  .site-header .mobile-nav,
+  .reference-home .home-hero-shell .site-header .mobile-nav {
+    position: fixed;
+    z-index: 50;
+    top: var(--mobile-drawer-offset);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - var(--mobile-drawer-offset));
+    height: calc(100dvh - var(--mobile-drawer-offset));
+    max-height: none;
+    margin: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-header .mobile-nav--products,
+  .reference-home .home-hero-shell .site-header .mobile-nav--products {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .site-header .mobile-nav--main,
+  .reference-home .home-hero-shell .site-header .mobile-nav--main {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+
+  .site-header .mobile-products-entry {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 54px;
+    margin: 0;
+    padding: 15px 0;
+    border: 0;
+    border-bottom: 1px solid #34444e;
+    background: transparent;
+    color: #fff;
+    font: 700 15px/1.4 Manrope, Arial, sans-serif;
+    text-align: left;
+    cursor: pointer;
+  }
+  .reference-home .home-hero-shell .site-header .mobile-products-entry {
+    border-bottom-color: #e5e9eb;
+    color: #10202c;
+    font-size: 14px;
+  }
+  .site-header .mobile-products-entry svg { color: #ffad73; }
+  .reference-home .home-hero-shell .site-header .mobile-products-entry svg { color: #bf4e0d; }
+  .site-header .mobile-products-entry:focus-visible { outline: 3px solid #ef7b2d; outline-offset: 2px; }
+}
+@media (max-width: 600px) {
+  .reference-home .home-hero-shell .site-header { --mobile-drawer-offset: 66px; }
+}

@@ -42,3 +42,10 @@
 
 - [x] Add all products listed on https://www.ljsportstech.com/products.html to the header across the homepage and interior pages, organized so visitors can find and open each official product. The November 2026 snapshot contains 152 unique products in five categories, verified against the official category pages and sitemap; links open the existing official product pages.
 - [x] Keep the existing navigation, refined logo and calls to action intact; make the expanded product navigation usable and consistent with the existing design on desktop and mobile. Search, category filtering, keyboard dismissal, layout and links were checked across the site and in Chromium, Firefox and WebKit.
+
+# Mobile product drawer
+
+- [x] Optimize the mobile navigation drawer so all 152 existing products remain easily accessible on small screens, with touch-friendly browsing, easy-to-reach search and category filtering, clear product counts, and links to the existing official product pages.
+- [x] Preserve the desktop Products menu, all existing navigation links, shared branding and page routes; keep the mobile drawer easy to open, close and navigate by touch or keyboard, including small-height screens.
+
+The complete catalog, filtering, reset, scroll behavior and focus handling were checked across the site at narrow phone, tablet and short landscape sizes in Chromium, Firefox and WebKit. The existing desktop menu was also checked.
