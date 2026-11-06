@@ -17,3 +17,11 @@ Homepage order: existing header and three-slide hero; four authentic product car
 ## Project structure
 
 `client/src/components/HomeHero.tsx` and scoped hero CSS own the hero; `HomeCatalogue.tsx` and scoped CSS own the product grid and connect the existing `ProductShowroom`; `HomeLower.tsx` and scoped CSS own the solutions, company and contact sections; `client/src/pages/Home.tsx` composes the page and owns shared product selection. Existing global and interior-page files remain untouched where possible. Static frontend delivery and existing route manifest remain unchanged.
+
+## News section extension
+
+Mode: extension, preserving the existing LJ site and its mobile product navigation. Replace the Solutions label in the shared header with News as requested, while retaining the existing `/solutions` page and its homepage/footer links. The new News page follows the established navy, pale neutral, white and restrained blue/orange visual language, with the same typography, shared navigation and footer.
+
+Use the official LJ news archive as a dated content snapshot. Add a searchable, paginated news listing and complete article pages with source attribution and actual article imagery; retain readable text, headings, lists and tables while sanitizing copied HTML and removing executable content. Article metadata and page content are rendered into static HTML. Use `/news.html` as the primary header destination, with `/news`, `/news/:slug`, and original article HTML paths also supported without changing the existing routes. Load the news bundle separately from the homepage to avoid making every visit download the archive. No CMS or automatic source synchronization is implied.
+
+The new `client/src/pages/NewsPage.tsx`, `NewsArticlePage.tsx`, and scoped `news-pages.css` own the presentation; `NewsRoutes.tsx` composes them with the shared layout; `client/src/data/news-index.json` stores article summaries and `client/public/news-content/` holds full article bodies for on-demand loading. Optimized copies of the official news imagery live in `client/public/news-images/`, avoiding the source CDN's observed browser-loading failures. `scripts/prerender.tsx` builds the page and article HTML, and `client/public/manus-routes.json` declares the new public routes.

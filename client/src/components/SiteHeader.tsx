@@ -8,7 +8,7 @@ import "./mobile-navigation.css";
 
 export const siteLinks = [
   { label: "Experiences", href: "/experiences" },
-  { label: "Solutions", href: "/solutions" },
+  { label: "News", href: "/news.html" },
   { label: "About", href: "/about" },
 ];
 

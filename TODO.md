@@ -56,3 +56,12 @@ The complete catalog, filtering, reset, scroll behavior and focus handling were 
 - [x] Keep the existing search, category selector, product counts, all 152 product links, keyboard and touch access, desktop navigation, and short-screen scrolling intact.
 
 The five category buttons, All reset, synchronized select and search, sticky behavior, short-screen layout, and full product-link set were checked in Chromium, Firefox and WebKit.
+
+# News section
+
+- [x] Replace the Solutions item in the shared desktop and mobile header with a News link to a complete new page based on https://www.ljsportstech.com/news.html; preserve the existing Solutions page and its direct links.
+- [x] Create a visually appealing, user-friendly news listing with clear, concise sports-technology content, using authentic LJ Sports Tech articles and images where available.
+- [x] Provide full locally rendered article pages for the available source news articles, with readable content, navigation back to News, and related articles; do not present excerpts or broken links as complete articles.
+- [x] Keep the new pages cohesive with the site’s theme, accessible and responsive; preserve the mobile product navigation and existing site functionality.
+
+The accessible source snapshot contains 70 full articles with 143 locally optimized images. All original article paths and new paths were prerendered. Listing, search, pagination, article content, responsive layout and retained mobile product navigation were checked across Chromium, Firefox and WebKit. Archive coverage and legacy product-link migration limits are documented in news-source-notes.md.
