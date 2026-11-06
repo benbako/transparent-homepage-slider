@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
 import HomeHero from "@/components/HomeHero";
+import ProductShowroom from "@/components/ProductShowroom";
 import SiteFooter from "@/components/SiteFooter";
 
 const venueImage = "/manus-storage/async-images/ciVJSH0vBTVwJK4ZXmXSA9/image-2.webp";
@@ -62,15 +63,11 @@ function Intro() {
 
 function Experiences() {
   const [selected, setSelected] = useState(0);
-  const current = experiences[selected];
   return <section className="experiences page-gutter" id="experiences">
     <div className="section-topline"><div className="eyebrow"><span className="eyebrow-line" /> THE EXPERIENCES</div><span>EXPLORE THE POSSIBILITIES <ArrowDownRight size={17}/></span></div>
     <div className="experiences-heading"><h2>CHOOSE YOUR<br/><span>WORLD OF PLAY.</span></h2><p>From the court to the slopes, explore immersive sports experiences made for a whole new kind of venue.</p></div>
     <div className="experience-layout">
-      <div className="experience-feature" key={current.name}>
-        <div className="feature-image-wrap"><img src={current.image} alt={current.alt} loading="lazy" onError={event => { event.currentTarget.style.display = "none"; }} /><div className="feature-image-gradient" /><span className="feature-label">{current.category} <span> / </span> {current.number}</span><div className="feature-image-caption">LJ SPORTS TECH EXPERIENCE</div></div>
-        <div className="feature-copy"><div><span className="feature-index">FEATURED EXPERIENCE / {current.number}</span><h3>{current.title}</h3></div><div><p>{current.description}</p><a className="text-link light-link" href={`mailto:sarah@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${current.name} simulator`)}`}>ASK ABOUT {current.name.toUpperCase()} <ArrowUpRight size={17}/></a></div></div>
-      </div>
+      <ProductShowroom items={experiences} selected={selected} onSelect={setSelected} />
       <div className="experience-list" aria-label="Choose a sports experience">
         <div className="list-caption">SELECT AN EXPERIENCE <span> / 04</span></div>
         {experiences.map((item, index) => <button key={item.name} type="button" className={`experience-option ${selected === index ? "is-active" : ""}`} aria-pressed={selected === index} onClick={() => setSelected(index)}>

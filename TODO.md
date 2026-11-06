@@ -19,3 +19,9 @@
 
 - [x] Add multiple attractive, cohesive slides to the existing homepage hero, keeping the existing 3D effect, site navigation, original homepage content, and routes intact.
 - [x] Provide clear, working slide controls and responsive desktop/mobile layouts, with keyboard access, sensible automatic-rotation controls, reduced-motion support, and preserved calls to action.
+
+# Interactive product showroom
+
+- [x] Create interactive 3D product cards or a rotating product showroom for a slider on the homepage, using LJ’s existing product visuals and incorporating the broad cinematic design elements of movie-power.com without copying its creative assets or exact layout. Product image changes must transition downwards.
+- [x] Make the showroom visually appealing and responsive, compatible with modern browsers, and cohesive with the existing LJ Sports Tech website; preserve the homepage hero slider, product selection, product information, inquiry links, navigation, and other existing page functionality.
+- [x] Provide smooth interactions across devices, with mouse, touch, and keyboard-accessible product selection, clearly labeled controls, and reduced-motion support. Verify the design and interactive features at desktop, tablet, and mobile sizes. Browser checks passed in Chromium, Firefox, and WebKit at 390, 768, 1280, and 1440 pixel widths, plus reduced-motion checks; swipe input was simulated.
