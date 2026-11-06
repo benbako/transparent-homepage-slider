@@ -1,23 +1,8 @@
-import { Component, lazy, Suspense, useState, type ReactNode } from "react";
-import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
-import SiteHeader from "@/components/SiteHeader";
+import { useState } from "react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
+import HomeHero from "@/components/HomeHero";
 import SiteFooter from "@/components/SiteFooter";
 
-const PlayOrbit = lazy(() => import("@/components/PlayOrbit"));
-
-class DecorativeBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-
-  static getDerivedStateFromError() {
-    return { failed: true };
-  }
-
-  render() {
-    return this.state.failed ? null : this.props.children;
-  }
-}
-
-const heroImage = "/manus-storage/async-images/ciVJSH0vBTVwJK4ZXmXSA9/image-1.webp";
 const venueImage = "/manus-storage/async-images/ciVJSH0vBTVwJK4ZXmXSA9/image-2.webp";
 
 const experiences = [
@@ -59,29 +44,6 @@ const experiences = [
   },
 ];
 
-
-function Hero() {
-  return <section className="hero" id="top">
-    <div className="hero-image" style={{ backgroundImage: `linear-gradient(90deg, rgba(3,9,16,.94) 0%, rgba(3,9,16,.76) 38%, rgba(3,9,16,.15) 75%), linear-gradient(0deg, rgba(3,9,16,.84) 0%, transparent 38%), url('${heroImage}')` }} />
-    <div className="hero-grid" aria-hidden="true" />
-    <SiteHeader />
-    <DecorativeBoundary><Suspense fallback={null}><PlayOrbit className="hero-orbit" /></Suspense></DecorativeBoundary>
-    <div className="hero-content page-gutter">
-      <div className="eyebrow hero-eyebrow"><span className="eyebrow-line" /> A NEW DIMENSION OF SPORT</div>
-      <h1>PLAY<br/><span>BEYOND</span><br/>LIMITS<span className="period">.</span></h1>
-      <p>Real movement. Digital worlds. Unforgettable experiences. Let's bring a new kind of play to your space.</p>
-      <div className="hero-actions">
-        <a className="button button-blue" href="#experiences">EXPLORE EXPERIENCES <ArrowUpRight size={18} /></a>
-        <a className="text-link light-link" href="#about">DISCOVER LJ <ArrowRight size={17} /></a>
-      </div>
-    </div>
-    <div className="hero-bottom page-gutter">
-      <span className="hero-scroll"><span className="scroll-icon"><ArrowDown size={14}/></span> SCROLL TO EXPLORE</span>
-      <span className="hero-caption">SPORTS × TECHNOLOGY × PLAY</span>
-      <span className="hero-image-caption">CONCEPT VISUAL</span>
-    </div>
-  </section>;
-}
 
 function Intro() {
   return <section className="intro-section page-gutter" id="about">
@@ -143,5 +105,5 @@ function Contact() {
 }
 
 export default function Home() {
-  return <main><Hero/><Intro/><Experiences/><Solutions/><Contact/></main>;
+  return <main><HomeHero/><Intro/><Experiences/><Solutions/><Contact/></main>;
 }

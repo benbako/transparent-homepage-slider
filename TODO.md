@@ -14,3 +14,8 @@
 - [x] Create cohesive About and Contact pages that explain LJ Sports Tech and give visitors useful, functional ways to inquire using the existing verified contact details.
 - [x] Connect the new pages to the existing homepage, header, footer and primary actions while preserving existing homepage section anchors and functionality; keep navigation usable on desktop and mobile.
 - [x] Verify the new pages align with the existing theme and functionality, maintain a cohesive aesthetic, and adapt responsively without broken routes, inaccessible controls or horizontal overflow. Desktop and mobile layouts were visually inspected, and all five routes were checked at 390, 768, 1280 and 1440 pixels; menu, product filters, contact targets and the homepage selector were exercised.
+
+# Homepage slider
+
+- [x] Add multiple attractive, cohesive slides to the existing homepage hero, keeping the existing 3D effect, site navigation, original homepage content, and routes intact.
+- [x] Provide clear, working slide controls and responsive desktop/mobile layouts, with keyboard access, sensible automatic-rotation controls, reduced-motion support, and preserved calls to action.
