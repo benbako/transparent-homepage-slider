@@ -10,6 +10,8 @@ export type ProductShowroomItem = {
   description: string;
   image: string;
   alt: string;
+  imageCaption?: string;
+  imagePosition?: string;
 };
 
 type ProductShowroomProps = {
@@ -214,6 +216,7 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
                 src={layer.item.image}
                 alt={layer.phase === "exiting" ? "" : layer.item.alt}
                 aria-hidden={layer.phase === "exiting" ? true : undefined}
+                style={layer.item.imagePosition ? { objectPosition: layer.item.imagePosition } : undefined}
                 loading="lazy"
                 decoding="async"
                 draggable={false}
@@ -221,7 +224,7 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
             ))}
             <div className="product-showroom__image-shade" aria-hidden="true" />
             <div className="product-showroom__image-topline"><span>{current.category} <i>/</i> {current.number}</span><span aria-hidden="true">LJ / SPORTS TECH</span></div>
-            <span className="product-showroom__image-caption">LJ SPORTS TECH EXPERIENCE</span>
+            <span className="product-showroom__image-caption">{current.imageCaption ?? "LJ SPORTS TECH EXPERIENCE"}</span>
             <span className="product-showroom__corner" aria-hidden="true" />
           </div>
           <div className="product-showroom__frame-bottom">

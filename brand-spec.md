@@ -10,3 +10,8 @@
 - Source facts: the company designs and sells digital sports simulators and provides venue planning and installation support; see https://www.ljsportstech.com/about-us.html. Contact details: https://www.ljsportstech.com/contactus.html.
 - This design references the general ambition of premium immersive entertainment sites only; it does not copy movie-power.com text, graphics, layout, or proprietary assets.
 - Company imagery: `client/public/assets/company.webp` is an optimized copy of the official About page image at https://iqrorwxhnpjllq5p-static.micyjz.com/cloud/lmBpiKpqlpSRililikliko/about.jpg.
+
+## Reference-based homepage redesign
+
+The November 2026 homepage uses the uploaded screenshot only as a structural and visual reference: a white header and catalog, dark cinematic hero, warm orange actions, product grids, solution cards, and a dark contact/footer. LJ's own logo, real product photography, original copy, and existing navigation remain in use. Interior pages retain their previous blue-and-navy design. The isometric venue in the first hero slide (`/manus-storage/async-images/QIghVlGM0UfFWsKq8QK7U4/image-1.webp`) is an original generated concept, labeled as a concept visual, not a photograph of an actual LJ installation.
+- The homepage's `/assets/pickleball-catalog.webp` is a product-focused crop of LJ's existing pickleball illustration; it removes an unverified embedded specification panel and is visibly labeled as an illustration.
