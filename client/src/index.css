@@ -92,3 +92,6 @@
 @media (max-width: 600px) {
   .site-header .logo-link { width: 180px; height: 48px; }
 }
+
+/* The recovery page uses the same shared navigation against a dark header. */
+.not-found-header .site-header { background: #0b1822; }

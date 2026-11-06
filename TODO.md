@@ -37,3 +37,8 @@
 
 - [x] Add the approved refined LJ Sports Tech logo to the shared header and footer across the homepage and all interior pages, preserving their navigation links and existing design.
 - [x] Ensure the logo remains clear, properly proportioned, and responsive on light and dark backgrounds; review the changes for consistency and clarity. Checked all five pages at mobile and desktop widths in Chromium, Firefox, and WebKit, including local image fallback.
+
+# Product navigation
+
+- [x] Add all products listed on https://www.ljsportstech.com/products.html to the header across the homepage and interior pages, organized so visitors can find and open each official product. The November 2026 snapshot contains 152 unique products in five categories, verified against the official category pages and sitemap; links open the existing official product pages.
+- [x] Keep the existing navigation, refined logo and calls to action intact; make the expanded product navigation usable and consistent with the existing design on desktop and mobile. Search, category filtering, keyboard dismissal, layout and links were checked across the site and in Chromium, Firefox and WebKit.

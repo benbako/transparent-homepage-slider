@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import SiteLogo from "./SiteLogo";
+import ProductMenu from "./ProductMenu";
+import { catalogGroups } from "../data/productCatalog";
 
 export const siteLinks = [
   { label: "Experiences", href: "/experiences" },
@@ -16,6 +18,7 @@ export default function SiteHeader({ active }: { active?: string }) {
         <SiteLogo />
       </a>
       <nav className="desktop-nav" aria-label="Main navigation">
+        <ProductMenu groups={catalogGroups} variant="desktop" />
         {siteLinks.map(link => <a key={link.label} href={link.href} aria-current={active === link.href ? "page" : undefined}>{link.label}</a>)}
       </nav>
       <a className="header-cta" href="/contact">LET'S TALK <ArrowUpRight size={16} strokeWidth={1.8} /></a>
@@ -23,6 +26,7 @@ export default function SiteHeader({ active }: { active?: string }) {
         {open ? <X size={25} /> : <Menu size={25} />}
       </button>
       {open && <nav className="mobile-nav" id="mobile-menu" aria-label="Mobile navigation">
+        <ProductMenu groups={catalogGroups} variant="mobile" />
         {siteLinks.map(link => <a key={link.label} href={link.href} aria-current={active === link.href ? "page" : undefined} onClick={() => setOpen(false)}>{link.label}<ArrowUpRight size={20}/></a>)}
         <a href="/contact" onClick={() => setOpen(false)}>Let's talk <ArrowUpRight size={20}/></a>
       </nav>}
