@@ -1,0 +1,7 @@
+# Website extension decision record
+
+Mode: Extension. Preserve the established LJ logo, navy/black and electric-blue palette, Archivo Black and Manrope typography, sharp rectangular controls, editorial oversized headlines, original conceptual imagery, product images, reduced-motion behavior, section anchors and contact details. Existing homepage features remain available.
+
+Add Experiences, Solutions, About and Contact pages as logical extensions of the existing primary navigation. The site remains a static React/Vite app; page components live under `client/src/pages`, shared navigation/footer in `client/src/components`, route registration in `App.tsx`, and scoped page styling alongside the global CSS. Reuse existing visuals where appropriate and use the official company-building image for the company story. Clearly label conceptual visuals, avoid unsupported business claims, and keep contact actions functional via existing email/telephone/WhatsApp links.
+
+Design read: B2B sports-entertainment website; bold cinematic/editorial language; visual variance 7/10, motion 7/10, density 4/10, asset dependence 8/10, brand fidelity 10/10. Page layouts vary in content structure but retain the existing type, spacing, colors and CTA language. Highest-risk changes are navigation and shared chrome; preserve homepage anchor IDs and verify the selector, mobile navigation and contact links after integration. Keep the original homepage and static fallback usable if the decorative 3D layer fails.

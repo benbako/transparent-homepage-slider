@@ -9,3 +9,4 @@
 - Interaction: pointer/touch-reactive low-cost WebGL accents; adaptive navigation; category controls, accessible links, subtle transitions, and a reduced-motion fallback.
 - Source facts: the company designs and sells digital sports simulators and provides venue planning and installation support; see https://www.ljsportstech.com/about-us.html. Contact details: https://www.ljsportstech.com/contactus.html.
 - This design references the general ambition of premium immersive entertainment sites only; it does not copy movie-power.com text, graphics, layout, or proprietary assets.
+- Company imagery: `client/public/assets/company.webp` is an optimized copy of the official About page image at https://iqrorwxhnpjllq5p-static.micyjz.com/cloud/lmBpiKpqlpSRililikliko/about.jpg.

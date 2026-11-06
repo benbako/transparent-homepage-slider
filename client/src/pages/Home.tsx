@@ -1,5 +1,7 @@
 import { Component, lazy, Suspense, useState, type ReactNode } from "react";
-import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const PlayOrbit = lazy(() => import("@/components/PlayOrbit"));
 
@@ -57,39 +59,12 @@ const experiences = [
   },
 ];
 
-const links = [
-  { label: "Experiences", href: "#experiences" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "About", href: "#about" },
-];
-
-function Header() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="site-header">
-      <a className="logo-link" href="#top" aria-label="LJ Sports Tech home" onClick={() => setOpen(false)}>
-        <img src="/assets/lj-logo.png" alt="LJ Sports Tech" />
-      </a>
-      <nav className="desktop-nav" aria-label="Main navigation">
-        {links.map(link => <a key={link.label} href={link.href}>{link.label}</a>)}
-      </nav>
-      <a className="header-cta" href="#contact">LET'S TALK <ArrowUpRight size={16} strokeWidth={1.8} /></a>
-      <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
-        {open ? <X size={25} /> : <Menu size={25} />}
-      </button>
-      {open && <nav className="mobile-nav" id="mobile-menu" aria-label="Mobile navigation">
-        {links.map(link => <a key={link.label} href={link.href} onClick={() => setOpen(false)}>{link.label}<ArrowUpRight size={20}/></a>)}
-        <a href="#contact" onClick={() => setOpen(false)}>Let's talk <ArrowUpRight size={20}/></a>
-      </nav>}
-    </header>
-  );
-}
 
 function Hero() {
   return <section className="hero" id="top">
     <div className="hero-image" style={{ backgroundImage: `linear-gradient(90deg, rgba(3,9,16,.94) 0%, rgba(3,9,16,.76) 38%, rgba(3,9,16,.15) 75%), linear-gradient(0deg, rgba(3,9,16,.84) 0%, transparent 38%), url('${heroImage}')` }} />
     <div className="hero-grid" aria-hidden="true" />
-    <Header />
+    <SiteHeader />
     <DecorativeBoundary><Suspense fallback={null}><PlayOrbit className="hero-orbit" /></Suspense></DecorativeBoundary>
     <div className="hero-content page-gutter">
       <div className="eyebrow hero-eyebrow"><span className="eyebrow-line" /> A NEW DIMENSION OF SPORT</div>
@@ -113,7 +88,7 @@ function Intro() {
     <div className="intro-kicker"><span className="eyebrow-line dark" /> THE LJ SPORTS TECH APPROACH</div>
     <div className="intro-main">
       <h2>REAL SPORT.<br/><span>NEW POSSIBILITIES.</span></h2>
-      <div className="intro-copy"><p>We bring the excitement of sport into new spaces through immersive simulators and interactive technology.</p><p>From a single experience to a complete venue, LJ Sports Tech helps turn your ideas into places people want to play.</p><a className="text-link dark-link" href="#solutions">HOW WE WORK <ArrowRight size={18}/></a></div>
+      <div className="intro-copy"><p>We bring the excitement of sport into new spaces through immersive simulators and interactive technology.</p><p>From a single experience to a complete venue, LJ Sports Tech helps turn your ideas into places people want to play.</p><div className="intro-links"><a className="text-link dark-link" href="#solutions">HOW WE WORK <ArrowRight size={18}/></a><a className="text-link dark-link" href="/about">OUR STORY <ArrowRight size={18}/></a></div></div>
     </div>
     <div className="benefit-row">
       <div><span>01 /</span><strong>MOVE FOR REAL</strong><small>Physical play meets digital worlds.</small></div>
@@ -140,7 +115,7 @@ function Experiences() {
           <span className="option-number">{item.number}</span><span className="option-name">{item.name}</span><span className="option-icon"><ArrowUpRight size={18}/></span>
         </button>)}
         <p className="experience-note">And more ways to play, from interactive sports to arcade experiences.</p>
-        <a className="all-products" href="https://www.ljsportstech.com/Sports-Simulator-pl45801697.html" target="_blank" rel="noreferrer">VIEW ALL PRODUCTS <ArrowUpRight size={17}/></a>
+        <a className="all-products" href="/experiences">EXPLORE ALL EXPERIENCES <ArrowUpRight size={17}/></a>
       </div>
     </div>
   </section>;
@@ -153,7 +128,7 @@ function Solutions() {
       <div className="eyebrow"><span className="eyebrow-line"/> BUILT AROUND YOUR AMBITION</div>
       <h2>YOUR SPACE.<br/>THEIR NEXT<br/><span>FAVORITE PLACE.</span></h2>
       <p>Great experiences start with a great plan. From equipment selection and venue design to installation support, we're here to help you bring your vision to life.</p>
-      <a className="button button-white" href="#contact">START A PROJECT <ArrowUpRight size={18}/></a>
+      <div className="solution-actions"><a className="button button-white" href="/solutions">EXPLORE SOLUTIONS <ArrowUpRight size={18}/></a><a className="text-link light-link" href="#contact">START A PROJECT <ArrowRight size={17}/></a></div>
       <span className="concept-caption">CONCEPT VISUAL</span>
     </div>
   </section>;
@@ -163,8 +138,7 @@ function Contact() {
   return <section className="contact-section page-gutter" id="contact">
     <div className="contact-top"><span>HAVE A SPACE IN MIND?</span><span>LET'S MAKE IT MOVE <ArrowDownRight size={18}/></span></div>
     <div className="contact-main"><h2>LET'S BUILD<br/><span>SOMETHING</span><br/>WORTH PLAYING.</h2><div><p>Tell us about your space, your audience and the experience you want to create.</p><a className="contact-circle" href="mailto:sarah@ljsportstech.com?subject=Let's%20build%20a%20sports%20experience" aria-label="Email LJ Sports Tech about your project"><ArrowUpRight size={34}/></a><a className="contact-email" href="mailto:sarah@ljsportstech.com">sarah@ljsportstech.com <ArrowUpRight size={16}/></a></div></div>
-    <footer className="footer"><div className="footer-brand"><img src="/assets/lj-logo.png" alt="LJ Sports Tech"/><p>Making more room for play.</p></div><div className="footer-column"><span>EXPLORE</span>{links.map(link => <a key={link.label} href={link.href}>{link.label}</a>)}</div><div className="footer-column"><span>GET IN TOUCH</span><a href="mailto:sarah@ljsportstech.com">Email us</a><a href="https://wa.me/8619927435575" target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="tel:+8619927435575">+86 199 2743 5575</a></div><div className="footer-column footer-location"><span>FIND US</span><p>Liangjia Technology Building<br/>No. 170 Donghuan Rd, Shiqiao Street<br/>Guangzhou, China</p></div></footer>
-    <div className="footer-bottom"><span>© {new Date().getFullYear()} LIANGJIA SPORTS TECHNOLOGY</span><span>SPORT HAS A NEW HOME.</span><a href="#top">BACK TO TOP ↑</a></div>
+    <SiteFooter />
   </section>;
 }
 
