@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import SiteLogo from "./SiteLogo";
 
 export const siteLinks = [
   { label: "Experiences", href: "/experiences" },
@@ -12,7 +13,7 @@ export default function SiteHeader({ active }: { active?: string }) {
   return (
     <header className="site-header">
       <a className="logo-link" href="/" aria-label="LJ Sports Tech home" onClick={() => setOpen(false)}>
-        <img src="/assets/lj-logo.png" alt="LJ Sports Tech" />
+        <SiteLogo />
       </a>
       <nav className="desktop-nav" aria-label="Main navigation">
         {siteLinks.map(link => <a key={link.label} href={link.href} aria-current={active === link.href ? "page" : undefined}>{link.label}</a>)}

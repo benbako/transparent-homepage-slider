@@ -32,3 +32,8 @@
 - [x] Draft and implement a welcoming homepage structure for a general audience: a light navigation bar, cinematic 3D hero slider, clear product cards, venue solutions, benefits, company story, and contact area with engaging, accurate copy.
 - [x] Preserve the existing homepage hero slider and 3D product showroom, downward image transitions, selection and inquiry links, existing routes, section anchors, navigation, accessibility and reduced-motion behavior; adapt the design responsively to desktop, tablet and mobile.
 - [x] Review the completed homepage for reference alignment, clarity, flow, engaging content, usable interactions, and responsive layout before delivery. Reviewed at 390, 768, 1280, and 1440 pixel viewport widths; browser checks covered Chromium, Firefox, and WebKit, with simulated touch and reduced-motion checks.
+
+# Refined logo integration
+
+- [x] Add the approved refined LJ Sports Tech logo to the shared header and footer across the homepage and all interior pages, preserving their navigation links and existing design.
+- [x] Ensure the logo remains clear, properly proportioned, and responsive on light and dark backgrounds; review the changes for consistency and clarity. Checked all five pages at mobile and desktop widths in Chromium, Firefox, and WebKit, including local image fallback.
