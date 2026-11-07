@@ -65,3 +65,13 @@ The five category buttons, All reset, synchronized select and search, sticky beh
 - [x] Keep the new pages cohesive with the site’s theme, accessible and responsive; preserve the mobile product navigation and existing site functionality.
 
 The accessible source snapshot contains 70 full articles with 143 locally optimized images. All original article paths and new paths were prerendered. Listing, search, pagination, article content, responsive layout and retained mobile product navigation were checked across Chromium, Firefox and WebKit. Archive coverage and legacy product-link migration limits are documented in news-source-notes.md.
+
+# Product link migration before domain switch
+
+- [x] Migrate the existing catalog’s 152 product links and relevant product-category links to complete local pages, preserving their original public paths and useful descriptions, source product images and inquiry options.
+- [x] Migrate links in all 70 full News articles and across desktop/mobile product navigation, the homepage and the footer to working local destinations; preserve article text, existing page routes, menu search and category filtering.
+- [x] Keep the product catalog and product/category pages responsive, accessible, discoverable in initial HTML, and visually cohesive with the existing LJ Sports Tech theme.
+- [x] Verify each known product, category and article destination, including legacy paths and aliases, before any live-domain change; keep the domain unchanged unless publication or switching is explicitly requested.
+- [x] Preserve the original site’s Home, About, Contact, Solutions and Services navigation paths alongside the new site’s routes, including a usable Services destination and honest catalog-request alternative where the old download cannot be copied.
+
+The November 7 snapshot includes 152 product details, 38 English categories and 192 original product/category paths. All 70 article texts remained intact; all 190 local article links had built destinations. Representative mobile and desktop product, category, article and menu journeys passed in Chromium, Firefox and WebKit. The original product URLs now open the migrated local pages rather than leaving the site. The live domain was not changed. See product-migration-notes.md for the catalog PDF and post-publication 404 checks.

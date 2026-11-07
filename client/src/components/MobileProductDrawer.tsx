@@ -1,4 +1,5 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { localCatalogPath } from "@/lib/catalog-links";
 import type { CatalogGroup } from "./ProductMenu";
 import "./mobile-product-drawer.css";
 
@@ -8,7 +9,7 @@ type MobileProductDrawerProps = {
   onClose: () => void;
 };
 
-const ALL_PRODUCTS_URL = "https://www.ljsportstech.com/products.html";
+const ALL_PRODUCTS_URL = "/products.html";
 const QUICK_LABELS: Record<string, string> = {
   "Sports Simulator": "Sports",
   "Indoor Archery Range": "Archery",
@@ -178,7 +179,7 @@ export default function MobileProductDrawer({ groups, onBack, onClose }: MobileP
         {results.length > 0 ? results.map(({ group, index, products }) => (
           <section className="mobile-product-drawer__group" key={`${group.url}-${index}`} aria-labelledby={`${id}-group-${index}`}>
             <h3 id={`${id}-group-${index}`}>
-              <a className="mobile-product-drawer__link mobile-product-drawer__category-link" href={group.url}>
+              <a className="mobile-product-drawer__link mobile-product-drawer__category-link" href={localCatalogPath(group.url)}>
                 <span>{group.name}</span>
                 <ArrowUpRight />
               </a>
@@ -186,7 +187,7 @@ export default function MobileProductDrawer({ groups, onBack, onClose }: MobileP
             <ul className="mobile-product-drawer__product-list">
               {products.map((product, productIndex) => (
                 <li key={`${product.url}-${productIndex}`}>
-                  <a className="mobile-product-drawer__link mobile-product-drawer__product-link" href={product.url}>
+                  <a className="mobile-product-drawer__link mobile-product-drawer__product-link" href={localCatalogPath(product.url)}>
                     <span>{product.name}</span>
                     <ArrowUpRight />
                   </a>

@@ -55,7 +55,7 @@ const experiences: Experience[] = [
 ];
 
 const filters: ExperienceFilter[] = ["All", "Racket", "Ball", "Adventure"];
-const catalogueUrl = "https://www.ljsportstech.com/Sports-Simulator-pl45801697.html";
+const catalogueUrl = "/Sports-Simulator-pl45801697.html";
 
 function ExperienceCard({ experience }: { experience: Experience }) {
   const inquiry = `mailto:sarah@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${experience.name} simulator`)}`;
@@ -163,7 +163,7 @@ export default function ExperiencesPage() {
             <p className="expPage-catalogueEyebrow">LOOKING FOR MORE?</p>
             <p>There are more ways to play.</p>
           </div>
-          <a href={catalogueUrl} target="_blank" rel="noreferrer">
+          <a href={catalogueUrl}>
             VIEW THE FULL CATALOGUE <ArrowUpRight size={18} aria-hidden="true" />
           </a>
         </div>

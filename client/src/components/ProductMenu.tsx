@@ -1,4 +1,5 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { localCatalogPath } from "@/lib/catalog-links";
 import "./product-menu.css";
 
 export type CatalogGroup = {
@@ -12,7 +13,7 @@ type ProductMenuProps = {
   variant: "desktop" | "mobile";
 };
 
-const ALL_PRODUCTS_URL = "https://www.ljsportstech.com/products.html";
+const ALL_PRODUCTS_URL = "/products.html";
 
 function Chevron() {
   return (
@@ -147,7 +148,7 @@ export default function ProductMenu({ groups, variant }: ProductMenuProps) {
           {results.length ? results.map(({ group, index, products }) => (
             <section className="product-menu__group" key={`${group.url}-${index}`} aria-labelledby={`${id}-group-${index}`}>
               <h3 id={`${id}-group-${index}`} className="product-menu__group-title">
-                <a href={group.url} className="product-menu__category-link">
+                <a href={localCatalogPath(group.url)} className="product-menu__category-link">
                   <span>{group.name}</span><Arrow />
                 </a>
               </h3>
@@ -155,7 +156,7 @@ export default function ProductMenu({ groups, variant }: ProductMenuProps) {
                 <ul className="product-menu__product-list">
                   {products.map((product, productIndex) => (
                     <li key={`${product.url}-${productIndex}`}>
-                      <a href={product.url} className="product-menu__product-link">
+                      <a href={localCatalogPath(product.url)} className="product-menu__product-link">
                         <span>{product.name}</span><Arrow />
                       </a>
                     </li>

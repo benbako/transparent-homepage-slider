@@ -2,8 +2,10 @@
 
 React / Express / tRPC / Drizzle starter, adapted from the Sandbox web-db-user template.
 
-- `pnpm dev`: development server; honors `PORT` (default 3000).
-- `pnpm build` / `pnpm start`: build and serve `dist/index.js` and `dist/public/`.
+- `pnpm dev:static`: the static-site development server; honors `PORT` (default 3000).
+- `pnpm build:static`: build the static website, including prerendered product and news pages in `dist/public/`.
+- `pnpm build` / `pnpm start`: also build the prerendered site and serve it with the optional Express server.
+- `pnpm dev`: optional Express development server; honors `PORT` (default 3000).
 - `pnpm db:migrate`: apply checked-in migrations. `pnpm db:push`: generate and apply new schema changes.
 - `pnpm check` / `pnpm test`: types and application tests.
 

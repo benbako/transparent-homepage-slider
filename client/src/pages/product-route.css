@@ -1,0 +1,6 @@
+.product-loading { min-height: 65vh; padding: 150px clamp(24px, 5.55vw, 80px) 80px; color: #edf7fc; background: #071722; }
+.product-loading a { display: inline-block; margin-bottom: 32px; color: #a9d6f5; font-size: 13px; font-weight: 700; }
+.product-loading h1 { max-width: 900px; margin: 0 0 24px; font-family: "Archivo Black", sans-serif; font-size: clamp(28px, 4vw, 58px); line-height: 1.12; overflow-wrap: anywhere; }
+.product-loading p { margin: 0 0 20px; }
+.product-loading button { min-height: 44px; padding: 10px 20px; border: 0; background: #bf4e0d; color: white; cursor: pointer; }
+.product-loading a:focus-visible, .product-loading button:focus-visible { outline: 3px solid #60b9ff; outline-offset: 3px; }
