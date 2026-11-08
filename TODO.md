@@ -91,3 +91,11 @@ The four-slide section uses one documented customer story and three clearly labe
 - [x] Preserve the existing About page’s story, timeline, capabilities, contact and solutions links, shared navigation and both `/about` and `/about-us.html` routes; keep the expanded page responsive and review its clarity, flow and accessibility before delivery.
 
 The new content builds on the official company profile and explains the mission, editorial design values and project process in plain language. The original page content and both About URLs remain intact. The 3D concept, rotate controls and static WebGL fallback were checked at phone and desktop sizes; the production build and prerendered content passed.
+
+# Integrated About page preview
+
+- [x] Add the original LJ Sports Tech Factory photo gallery and Certificates sections to the existing 3D About Us page, keeping the company’s real imagery and making the full collections accessible without lengthy reveal animations.
+- [x] Preserve the 3D concept, existing company story, mission, values, capabilities, links and About routes; provide clear section navigation and preserve the original page’s section anchors.
+- [x] Present the integrated page responsively and accessibly in Preview, with images loaded efficiently and certificate documents viewable in full; do not change or publish the live domain.
+
+Review evidence: 25 Factory photos and 29 certificate/patent gallery entries are present; all 54 original images and 29 uncropped thumbnail assets are available. The desktop Preview and mobile page layout were inspected, original section anchors and in-page navigation were checked, the 3D scene rendered, and TypeScript plus the static build passed.

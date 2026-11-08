@@ -1,6 +1,9 @@
 import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useEffect } from "react";
 import AboutExpansion from "@/components/AboutExpansion";
 import AboutDesignScene from "@/components/AboutDesignScene";
+import AboutGallery, { AboutGalleryNav } from "@/components/AboutGallery";
+import { factoryImages, certificateGroups } from "@/data/about-gallery";
 import "./company-pages.css";
 
 const capabilities = [
@@ -27,6 +30,24 @@ const capabilities = [
 ];
 
 export default function AboutPage() {
+  useEffect(() => {
+    const sectionIds = new Set([
+      "our-story", "factory", "certificates",
+      "jrBqrKnjnrmioijnpjj", "jiBqrKnjnrmioijnonj", "jiBqrKnjnrmioiknmij",
+    ]);
+    const id = window.location.hash.slice(1);
+    if (!sectionIds.has(id)) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    // The preview serves an application shell, so the browser may try to
+    // follow the anchor before React has added the section to the document.
+    const previousBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = "auto";
+    target.scrollIntoView({ block: "start", behavior: "auto" });
+    document.documentElement.style.scrollBehavior = previousBehavior;
+  }, []);
+
   return (
     <main id="top" className="company-page">
       <section className="cp-about-hero cp-gutter" aria-labelledby="about-title">
@@ -47,8 +68,10 @@ export default function AboutPage() {
         <div className="cp-hero-bottom"><span>SPORTS × TECHNOLOGY × PLAY</span><span>ABOUT / LJ SPORTS TECH</span></div>
       </section>
 
+      <AboutGalleryNav />
+
       <section id="our-story" className="cp-story cp-gutter" aria-labelledby="story-title">
-        <div className="cp-section-label"><span aria-hidden="true" /> OUR STORY</div>
+        <div id="jrBqrKnjnrmioijnpjj" className="cp-section-label about-gallery-company-anchor"><span aria-hidden="true" /> OUR STORY</div>
         <div className="cp-story__grid">
           <h2 id="story-title">FROM AN IDEA<br /><span>TO A WORLD<br />OF PLAY.</span></h2>
           <div className="cp-story__copy">
@@ -63,6 +86,8 @@ export default function AboutPage() {
       </section>
 
       <AboutExpansion scene={<AboutDesignScene />} />
+
+      <AboutGallery factoryImages={factoryImages} certificateGroups={certificateGroups} />
 
       <section className="cp-capabilities cp-gutter" aria-labelledby="capabilities-title">
         <div className="cp-capabilities__head">
