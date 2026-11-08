@@ -10,7 +10,22 @@ class DecorativeBoundary extends Component<{ children: ReactNode }, { failed: bo
   render() { return this.state.failed ? null : this.props.children; }
 }
 
-const slides = [
+type HeroSlide = {
+  eyebrow: string;
+  first: string;
+  outlined: string;
+  last: string;
+  description: string;
+  primary: { text: string; href: string };
+  secondary: { text: string; href: string };
+  image: string;
+  label: string;
+  caption: string;
+  copySide?: "right";
+  subjectSide?: "left";
+};
+
+const slides: HeroSlide[] = [
   {
     eyebrow: "A NEW DIMENSION OF SPORT",
     first: "PLAY", outlined: "BEYOND", last: "LIMITS",
@@ -20,6 +35,38 @@ const slides = [
     image: "/manus-storage/async-images/QIghVlGM0UfFWsKq8QK7U4/image-1.webp",
     label: "Play beyond limits",
     caption: "CONCEPT VISUAL",
+  },
+  {
+    eyebrow: "THE GAME IS ON",
+    first: "PLAY", outlined: "YOUR", last: "BEST",
+    description: "Bring the excitement of tennis indoors with an immersive sports experience.",
+    primary: { text: "EXPLORE TENNIS", href: "/Tennis-Simulator-pd594559948.html" },
+    secondary: { text: "VIEW PRODUCTS", href: "/products.html" },
+    image: "/manus-storage/ljsportstech_slider_01_fe42207a.webp",
+    label: "Play your best",
+    caption: "SPORTS EXPERIENCE VISUAL",
+  },
+  {
+    eyebrow: "A WORLD OF SPORTS",
+    first: "ONE SPACE", outlined: "MANY WAYS", last: "TO PLAY",
+    description: "From tennis to skiing and beyond, discover interactive sports experiences for your space.",
+    primary: { text: "EXPLORE EXPERIENCES", href: "/experiences" },
+    secondary: { text: "START A PROJECT", href: "/contact" },
+    image: "/manus-storage/ljsportstech_slider_02_17c1d36a.webp",
+    label: "Many ways to play",
+    caption: "SPORTS EXPERIENCE VISUAL",
+    copySide: "right",
+    subjectSide: "left",
+  },
+  {
+    eyebrow: "MOVE AND PLAY TOGETHER",
+    first: "BRING", outlined: "PLAYERS", last: "TOGETHER",
+    description: "Make room for shared challenges and interactive fun that gets people moving.",
+    primary: { text: "EXPLORE EXPERIENCES", href: "/experiences" },
+    secondary: { text: "PLAN A PROJECT", href: "/contact" },
+    image: "/manus-storage/ljsportstech_slider_03_a5e7ed08.webp",
+    label: "Bring players together",
+    caption: "SPORTS EXPERIENCE VISUAL",
   },
   {
     eyebrow: "MOVE INTO A NEW WORLD",
@@ -77,9 +124,9 @@ export default function HomeHero() {
     onPointerLeave={event => { if (event.pointerType === "mouse") setHovered(false); }}
     onFocusCapture={() => setPlaying(false)}
   >
-    <section className="hero" aria-roledescription="carousel" aria-label="Featured sports experiences">
+    <section className={`hero${slide.copySide === "right" ? " hero--copy-right" : ""}`} aria-roledescription="carousel" aria-label="Featured sports experiences">
       <div className="hero-backgrounds" aria-hidden="true">
-        {slides.map((item, index) => <div key={item.label} className={`hero-image hero-slide-image${index === active ? " is-visible" : ""}`} style={{ backgroundImage: `url('${item.image}')` }} />)}
+        {slides.map((item, index) => <div key={item.label} className={`hero-image hero-slide-image${item.subjectSide === "left" ? " hero-slide-image--subject-left" : ""}${index === active ? " is-visible" : ""}`} style={{ backgroundImage: `url('${item.image}')` }} />)}
       </div>
       <div className="hero-grid" aria-hidden="true" />
       <DecorativeBoundary><Suspense fallback={null}><PlayOrbit className="hero-orbit" /></Suspense></DecorativeBoundary>

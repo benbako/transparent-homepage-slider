@@ -102,6 +102,11 @@
     linear-gradient(0deg, rgba(5, 13, 20, .8), transparent 30%);
 }
 
+.reference-home .home-hero-shell .hero--copy-right .hero-backgrounds::after {
+  background: linear-gradient(270deg, #091620 0%, rgba(9, 22, 32, .97) 24%, rgba(9, 22, 32, .72) 43%, rgba(9, 22, 32, .1) 74%),
+    linear-gradient(0deg, rgba(5, 13, 20, .8), transparent 30%);
+}
+
 .reference-home .home-hero-shell .hero-image {
   background-position: center center;
   background-size: cover;
@@ -124,6 +129,12 @@
   padding: 72px 24px 135px var(--hero-gutter);
   transform: none;
   animation: none;
+}
+
+.reference-home .home-hero-shell .hero--copy-right .hero-content {
+  margin-left: auto;
+  padding-right: var(--hero-gutter);
+  padding-left: 24px;
 }
 
 .reference-home .home-hero-shell .hero-eyebrow {
@@ -213,6 +224,8 @@
   height: 50%;
   opacity: .2;
 }
+
+.reference-home .home-hero-shell .hero--copy-right .hero-orbit { right: auto; left: -2%; }
 
 .reference-home .home-hero-shell .hero-slider-controls {
   position: absolute;
@@ -327,6 +340,7 @@
   }
   .reference-home .home-hero-shell .mobile-nav a svg { color: #d7651c; }
   .reference-home .home-hero-shell .hero-image { background-position: 65% center !important; }
+  .reference-home .home-hero-shell .hero-image.hero-slide-image--subject-left { background-position: 18% center !important; }
   .reference-home .home-hero-shell .hero-content {
     width: 65%;
     min-height: 560px;
@@ -335,6 +349,7 @@
   }
   .reference-home .home-hero-shell .hero h1 { font-size: clamp(44px, 6.6vw, 62px); }
   .reference-home .home-hero-shell .hero-orbit { right: -8%; width: 32%; height: 42%; }
+  .reference-home .home-hero-shell .hero--copy-right .hero-orbit { right: auto; left: -8%; }
 }
 
 @media (max-width: 700px) {
@@ -349,11 +364,19 @@
     background: linear-gradient(180deg, rgba(9, 22, 32, .82) 0%, rgba(9, 22, 32, .75) 45%, rgba(9, 22, 32, .43) 72%, rgba(5, 13, 20, .85) 100%),
       linear-gradient(90deg, rgba(9, 22, 32, .7), transparent 100%);
   }
+  .reference-home .home-hero-shell .hero--copy-right .hero-backgrounds::after {
+    background: linear-gradient(180deg, rgba(9, 22, 32, .82) 0%, rgba(9, 22, 32, .75) 45%, rgba(9, 22, 32, .43) 72%, rgba(5, 13, 20, .85) 100%),
+      linear-gradient(90deg, rgba(9, 22, 32, .7), transparent 100%);
+  }
   .reference-home .home-hero-shell .hero-image { background-position: 68% center !important; }
   .reference-home .home-hero-shell .hero-content {
     width: 100%;
     max-width: none;
     min-height: 670px;
+    padding: 58px var(--hero-gutter) 164px;
+  }
+  .reference-home .home-hero-shell .hero--copy-right .hero-content {
+    margin-left: 0;
     padding: 58px var(--hero-gutter) 164px;
   }
   .reference-home .home-hero-shell .hero h1 {
@@ -363,8 +386,19 @@
   .reference-home .home-hero-shell .hero-content p { max-width: 335px; font-size: 15px; }
   .reference-home .home-hero-shell .hero-actions { gap: 10px; margin-top: 24px; }
   .reference-home .home-hero-shell .hero-orbit { right: -12%; bottom: 13%; width: 42%; height: 28%; opacity: .16; }
-  .reference-home .home-hero-shell .hero-slider-controls { bottom: 50px; gap: 3px; }
-  .reference-home .home-hero-shell .hero-slide-pickers { margin-right: 2px; }
+  .reference-home .home-hero-shell .hero-slider-controls {
+    bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 44px);
+    justify-content: center;
+    width: 264px;
+    gap: 2px 3px;
+  }
+  .reference-home .home-hero-shell .hero-slide-pickers {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-right: 0;
+  }
   .reference-home .home-hero-shell .hero-bottom { height: 42px; font-size: 8px; }
   .reference-home .home-hero-shell .hero-image-caption { font-size: 8px; }
 }

@@ -99,3 +99,10 @@ The new content builds on the official company profile and explains the mission,
 - [x] Present the integrated page responsively and accessibly in Preview, with images loaded efficiently and certificate documents viewable in full; do not change or publish the live domain.
 
 Review evidence: 25 Factory photos and 29 certificate/patent gallery entries are present; all 54 original images and 29 uncropped thumbnail assets are available. The desktop Preview and mobile page layout were inspected, original section anchors and in-page navigation were checked, the 3D scene rendered, and TypeScript plus the static build passed.
+
+# Additional supplied hero slides
+
+- [x] Add all three supplied sports images to the existing homepage hero slider without removing its current slides, homepage content, navigation or calls to action.
+- [x] Match the existing responsive design, keep slide text legible and supplied subjects visible, and preserve the slider’s automatic rotation, manual controls, keyboard access and reduced-motion behavior.
+
+The three supplied images were added alongside the existing three slides. The six slide selections and their destinations were checked in Preview; at a 320-pixel viewport all controls fit with 44-pixel targets and no overlap with the calls to action. TypeScript and the production build passed.
