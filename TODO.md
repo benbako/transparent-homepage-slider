@@ -113,3 +113,11 @@ The three supplied images were added alongside the existing three slides. The si
 - [x] Preserve navigation, sliders, page content and contact functionality; ensure the icons are suitably sized, correctly aligned and do not obstruct other elements, including on small screens and when the mobile menu is open.
 
   Checked alignment and potential control overlap at phone, tablet, laptop and desktop sizes, including short landscape; checked destinations, keyboard focus and mobile-menu isolation in Chromium, Firefox and WebKit.
+
+# About page image refinement
+
+- [x] Revise the About Us page so the user's photographs and existing company images are prominent, elegantly presented, and show the shape and character of the space without misleading alterations or omitted photos.
+- [x] Keep the page concise, visually appealing, professional and uncluttered; preserve the existing 3D design experience, company information, Factory and Certificates galleries, links and page anchors.
+- [x] Verify that all three previously supplied LJ Sports Tech images and every existing factory photo and certificate are incorporated and load correctly, including full-image links.
+
+All three supplied images match the originals byte-for-byte; the company image, 25 factory photos, 29 certificate/patent links and 3D scene remain present. Image loading and full-size links passed in Chromium, Firefox and WebKit at phone and desktop widths; the static build and 3D fallback passed.

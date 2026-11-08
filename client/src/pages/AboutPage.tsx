@@ -5,6 +5,7 @@ import AboutDesignScene from "@/components/AboutDesignScene";
 import AboutGallery, { AboutGalleryNav } from "@/components/AboutGallery";
 import { factoryImages, certificateGroups } from "@/data/about-gallery";
 import "./company-pages.css";
+import "./about-photo-refresh.css";
 
 const capabilities = [
   {
@@ -60,10 +61,20 @@ export default function AboutPage() {
           </a>
         </div>
         <figure className="cp-about-hero__figure">
-          <div className="cp-about-hero__image">
-            <img src="/assets/company.webp" alt="Exterior of the Liangjia Technology building" />
+          <a className="cp-about-photo-link" href="/assets/about-user/group-play.webp" target="_blank" rel="noopener noreferrer" aria-label="Open the group sports experience image in a new tab">
+            <div className="cp-about-hero__image">
+              <img src="/assets/about-user/group-play.webp" alt="People playing an interactive ball game in a spacious indoor setting" />
+            </div>
+          </a>
+          <div className="cp-about-photo-pair">
+            <a className="cp-about-photo-link" href="/assets/about-user/tennis.webp" target="_blank" rel="noopener noreferrer" aria-label="Open the indoor tennis experience image in a new tab">
+              <div className="cp-about-hero__image"><img src="/assets/about-user/tennis.webp" alt="A player with a racket in an indoor tennis simulator space" loading="lazy" /></div>
+            </a>
+            <a className="cp-about-photo-link" href="/assets/about-user/multi-sport.webp" target="_blank" rel="noopener noreferrer" aria-label="Open the multi-sport experience image in a new tab">
+              <div className="cp-about-hero__image"><img src="/assets/about-user/multi-sport.webp" alt="A tennis player beside digital sports screens in an indoor space" loading="lazy" /></div>
+            </a>
           </div>
-          <figcaption><span>LIANGJIA SPORTS TECHNOLOGY</span><span>GUANGZHOU, CHINA</span></figcaption>
+          <figcaption><span>SPACES FOR MOVEMENT</span><span>LJ SPORTS TECH EXPERIENCE VISUALS</span></figcaption>
         </figure>
         <div className="cp-hero-bottom"><span>SPORTS × TECHNOLOGY × PLAY</span><span>ABOUT / LJ SPORTS TECH</span></div>
       </section>
@@ -77,6 +88,10 @@ export default function AboutPage() {
           <div className="cp-story__copy">
             <p>Liangjia Sports Technology (Guangzhou) Co., Ltd. develops, manufactures and sells digital interactive sports equipment.</p>
             <p>Founded in Shanghai in 2018, the company relocated to Guangzhou in 2020. Today, our work connects sports simulation equipment with the spaces and people it is made for.</p>
+            <figure className="cp-story__building">
+              <a href="/assets/company.webp" target="_blank" rel="noopener noreferrer" aria-label="Open the company building photograph in a new tab"><img src="/assets/company.webp" alt="Exterior of the Liangjia Technology building" loading="lazy" /></a>
+              <figcaption>LIANGJIA TECHNOLOGY BUILDING · GUANGZHOU</figcaption>
+            </figure>
           </div>
         </div>
         <div className="cp-timeline" aria-label="Company history">

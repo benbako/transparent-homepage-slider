@@ -1,0 +1,47 @@
+/* About imagery: full-frame photography with a quiet editorial rhythm. */
+.company-page .cp-about-hero__image {
+  aspect-ratio: 16 / 9;
+  background: #0e202c;
+  border: 1px solid rgba(223, 237, 244, .2);
+}
+.company-page .cp-about-hero__image::after { content: none; }
+.company-page .cp-about-hero__image img { object-fit: contain; }
+.company-page .cp-about-photo-link { display: block; }
+.company-page .cp-about-photo-link:focus-visible,
+.company-page .cp-story__building a:focus-visible {
+  outline: 3px solid #80c8ff;
+  outline-offset: 4px;
+}
+.company-page .cp-about-photo-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8px, 1vw, 14px);
+  margin-top: clamp(8px, 1vw, 14px);
+}
+.company-page .cp-about-photo-pair .cp-about-hero__image { aspect-ratio: 16 / 9; }
+.company-page .cp-about-hero__figure figcaption {
+  margin-top: 18px;
+  color: #becdd8;
+}
+.company-page .cp-story__building {
+  max-width: 350px;
+  margin: 32px 0 0;
+}
+.company-page .cp-story__building a { display: block; }
+.company-page .cp-story__building img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #d2dcde;
+}
+.company-page .cp-story__building figcaption {
+  margin-top: 10px;
+  color: #52616a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  line-height: 1.5;
+}
+@media (max-width: 560px) {
+  .company-page .cp-about-hero__figure figcaption { flex-wrap: wrap; gap: 4px 16px; }
+  .company-page .cp-story__building { max-width: 100%; }
+}

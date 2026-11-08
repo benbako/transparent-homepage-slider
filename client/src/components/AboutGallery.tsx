@@ -28,7 +28,7 @@ export function AboutGalleryNav() {
   );
 }
 
-function ImageCard({ image, kind }: { image: GalleryImage; kind: "factory" | "document" }) {
+function ImageCard({ image, kind, index }: { image: GalleryImage; kind: "factory" | "document"; index?: number }) {
   return (
     <li className={`about-gallery-card about-gallery-card--${kind}`}>
       <a href={image.src} target="_blank" rel="noopener noreferrer">
@@ -36,7 +36,7 @@ function ImageCard({ image, kind }: { image: GalleryImage; kind: "factory" | "do
           <img src={image.thumbnail ?? image.src} alt={image.alt} loading="lazy" decoding="async" />
         </span>
         <span className="about-gallery-card__action">
-          <span>{kind === "factory" ? "VIEW PHOTO" : "VIEW DOCUMENT"}<span className="about-gallery-sr-only"> (opens in a new tab)</span></span>
+          <span>{kind === "factory" && index !== undefined && <span className="about-gallery-card__number" aria-hidden="true">{String(index + 1).padStart(2, "0")} / </span>}{kind === "factory" ? "VIEW PHOTO" : "VIEW DOCUMENT"}<span className="about-gallery-sr-only"> (opens in a new tab)</span></span>
           <span aria-hidden="true">↗</span>
         </span>
       </a>
@@ -56,11 +56,11 @@ export default function AboutGallery({ factoryImages, certificateGroups }: About
             <div className="about-gallery-kicker"><span aria-hidden="true" /> FACTORY</div>
             <h2 id="about-gallery-factory-title">A CLOSER LOOK<br /><span>AT THE FACTORY.</span></h2>
           </div>
-          <p>Explore the factory image collection. Select an image to open it full size in a new tab.</p>
+          <p>Explore the spaces where our equipment comes together. Select a photo to view it full size.</p>
         </div>
         <ul className="about-gallery-grid about-gallery-grid--factory" aria-label="Factory images">
           {factoryImages.map((image, index) => (
-            <ImageCard key={`${image.src}-${index}`} image={image} kind="factory" />
+            <ImageCard key={`${image.src}-${index}`} image={image} kind="factory" index={index} />
           ))}
         </ul>
       </section>
@@ -72,7 +72,7 @@ export default function AboutGallery({ factoryImages, certificateGroups }: About
             <div className="about-gallery-kicker"><span aria-hidden="true" /> CERTIFICATES</div>
             <h2 id="about-gallery-documents-title">CERTIFICATES<br /><span>AND PATENTS.</span></h2>
           </div>
-          <p>Browse the document images from our original About page. Select an image to open it full size in a new tab. <a href="/contact">Need help reading a document? Contact us.</a></p>
+          <p>Select a document to view it full size. <a href="/contact">Need help reading a document? Contact us.</a></p>
         </div>
         <div className="about-gallery-groups">
           {certificateGroups.map((group, groupIndex) => (
