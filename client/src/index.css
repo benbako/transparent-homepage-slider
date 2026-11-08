@@ -95,3 +95,9 @@
 
 /* The recovery page uses the same shared navigation against a dark header. */
 .not-found-header .site-header { background: #0b1822; }
+
+/* Larger shared footer targets for touch devices. */
+@media (max-width: 900px) {
+  .footer-column { gap: 0; }
+  .footer-column a, .footer-bottom a { display: inline-flex; min-height: 44px; align-items: center; }
+}

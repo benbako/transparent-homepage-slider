@@ -23,7 +23,7 @@ type ProductShowroomProps = {
 type PhotoLayer = {
   id: number;
   item: ProductShowroomItem;
-  phase: "entering" | "active" | "exiting";
+  phase: "loading" | "entering" | "active" | "exiting";
 };
 
 /** A controlled feature panel: the surrounding selector remains owned by the parent. */
@@ -37,18 +37,22 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
   const pendingTilt = useRef({ x: 0, y: 0 });
   const touchStart = useRef<{ id: number; x: number; y: number } | null>(null);
   const nextLayerId = useRef(0);
-  const activeLayerId = useRef<number | null>(current ? 0 : null);
+  const activeLayerId = useRef<number | null>(current?.image.trim() ? 0 : null);
+  const pendingLayerId = useRef<number | null>(null);
   const animationFrames = useRef(new Set<number>());
   const cleanupTimers = useRef(new Set<number>());
+  const mounted = useRef(true);
   const signature = current ? JSON.stringify([selected, current.image, current.alt]) : "empty";
   const lastSignature = useRef(signature);
-  const [layers, setLayers] = useState<PhotoLayer[]>(() => current ? [{ id: 0, item: current, phase: "active" }] : []);
+  const [layers, setLayers] = useState<PhotoLayer[]>(() => current?.image.trim() ? [{ id: 0, item: current, phase: "active" }] : []);
+  const [imageFailed, setImageFailed] = useState(() => Boolean(current && !current.image.trim()));
 
-  // Each change gets a fresh incoming layer. An interrupted incoming layer is
-  // retargeted from its current position to the exit rather than restarting.
+  // Keep the last visible photo until the latest selected image has loaded.
   useLayoutEffect(() => {
     if (signature === lastSignature.current) return;
     lastSignature.current = signature;
+    pendingLayerId.current = null;
+    setImageFailed(false);
 
     if (!current) {
       activeLayerId.current = null;
@@ -56,28 +60,64 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
       return;
     }
 
-    const previousId = activeLayerId.current;
-    const id = ++nextLayerId.current;
-    activeLayerId.current = id;
-    setLayers(previous => [
-      ...previous.map(layer => layer.id === previousId ? { ...layer, phase: "exiting" as const } : layer),
-      { id, item: current, phase: previousId === null ? "active" : "entering" },
-    ]);
+    if (!current.image.trim()) {
+      setImageFailed(true);
+      setLayers(previous => previous.filter(layer => layer.phase !== "loading"));
+      return;
+    }
 
+    const id = ++nextLayerId.current;
+    pendingLayerId.current = id;
+    setLayers(previous => [
+      ...previous.filter(layer => layer.phase !== "loading"),
+      { id, item: current, phase: "loading" },
+    ]);
+  }, [signature, current]);
+
+  const handleImageLoad = (id: number) => {
+    if (!mounted.current || pendingLayerId.current !== id) return;
+    pendingLayerId.current = null;
+    const previousId = activeLayerId.current;
+    activeLayerId.current = id;
+    setLayers(previous => previous.map(layer => {
+      if (layer.id === id) return { ...layer, phase: previousId === null ? "active" : "entering" };
+      return layer;
+    }));
+
+    // An interrupted incoming layer is retargeted from its current position.
     if (previousId !== null) {
       const frame = window.requestAnimationFrame(() => {
         animationFrames.current.delete(frame);
-        setLayers(previous => previous.map(layer => layer.id === id && layer.phase === "entering" ? { ...layer, phase: "active" } : layer));
+        setLayers(previous => previous.map(layer => {
+          if (layer.id === previousId) return { ...layer, phase: "exiting" };
+          if (layer.id === id && layer.phase === "entering") return { ...layer, phase: "active" };
+          return layer;
+        }));
+        // Start cleanup with the transition, even if animation frames were delayed.
+        const timer = window.setTimeout(() => {
+          cleanupTimers.current.delete(timer);
+          setLayers(previous => previous.filter(layer => layer.id !== previousId));
+        }, 450);
+        cleanupTimers.current.add(timer);
       });
       animationFrames.current.add(frame);
-      // A timeout also cleans up when transitions are disabled or interrupted.
-      const timer = window.setTimeout(() => {
-        cleanupTimers.current.delete(timer);
-        setLayers(previous => previous.filter(layer => layer.id !== previousId));
-      }, 450);
-      cleanupTimers.current.add(timer);
     }
-  }, [signature, current]);
+  };
+
+  const handleImageError = (id: number) => {
+    if (!mounted.current) return;
+    if (pendingLayerId.current === id) {
+      pendingLayerId.current = null;
+      setImageFailed(true);
+    } else if (activeLayerId.current === id) {
+      activeLayerId.current = null;
+      // If another selection is already loading, its result determines the status.
+      if (pendingLayerId.current === null) setImageFailed(true);
+    } else {
+      return;
+    }
+    setLayers(previous => previous.filter(layer => layer.id !== id));
+  };
 
   useEffect(() => {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -100,10 +140,12 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const frames = animationFrames.current;
     const timers = cleanupTimers.current;
+    mounted.current = true;
     return () => {
+      mounted.current = false;
       frames.forEach(frame => window.cancelAnimationFrame(frame));
       timers.forEach(timer => window.clearTimeout(timer));
       frames.clear();
@@ -111,11 +153,19 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
     };
   }, []);
 
-  // Warm the supplied real photos as the showroom approaches the viewport.
+  // Warm only the next photo as the showroom approaches the viewport.
   useEffect(() => {
     const visual = visualRef.current;
-    if (!visual) return;
-    const preload = () => items.forEach(item => { const image = new Image(); image.src = item.image; });
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (!visual || items.length < 2 || connection?.saveData) return;
+    const nextImage = items[(selected + 1) % items.length]?.image;
+    if (!nextImage?.trim()) return;
+    const preload = () => {
+      const image = new Image();
+      image.decoding = "async";
+      image.fetchPriority = "low";
+      image.src = nextImage;
+    };
     if (!("IntersectionObserver" in window)) {
       preload();
       return;
@@ -128,7 +178,7 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
     }, { rootMargin: "300px" });
     observer.observe(visual);
     return () => observer.disconnect();
-  }, [items]);
+  }, [items, selected]);
 
   if (!current) return null;
 
@@ -214,17 +264,35 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
                 key={layer.id}
                 className={`product-showroom__photo is-${layer.phase}`}
                 src={layer.item.image}
-                alt={layer.phase === "exiting" ? "" : layer.item.alt}
-                aria-hidden={layer.phase === "exiting" ? true : undefined}
+                alt={layer.phase === "exiting" || layer.phase === "loading" ? "" : layer.item.alt}
+                aria-hidden={layer.phase === "exiting" || layer.phase === "loading" ? true : undefined}
                 style={layer.item.imagePosition ? { objectPosition: layer.item.imagePosition } : undefined}
-                loading="lazy"
+                loading={layer.phase === "loading" ? "eager" : "lazy"}
                 decoding="async"
                 draggable={false}
+                onLoad={event => {
+                  if (pendingLayerId.current !== layer.id) return;
+                  const image = event.currentTarget;
+                  if (typeof image.decode !== "function") {
+                    handleImageLoad(layer.id);
+                    return;
+                  }
+                  image.decode().then(
+                    () => handleImageLoad(layer.id),
+                    () => { if (pendingLayerId.current === layer.id) handleImageError(layer.id); },
+                  );
+                }}
+                onError={() => handleImageError(layer.id)}
               />
             ))}
             <div className="product-showroom__image-shade" aria-hidden="true" />
             <div className="product-showroom__image-topline"><span>{current.category} <i>/</i> {current.number}</span><span aria-hidden="true">LJ / SPORTS TECH</span></div>
             <span className="product-showroom__image-caption">{current.imageCaption ?? "LJ SPORTS TECH EXPERIENCE"}</span>
+            {(imageFailed || layers.some(layer => layer.phase === "loading")) && (
+              <span className="product-showroom__image-status" role="status">
+                {imageFailed ? "Selected image unavailable." : "Loading selected image…"}
+              </span>
+            )}
             <span className="product-showroom__corner" aria-hidden="true" />
           </div>
           <div className="product-showroom__frame-bottom">

@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { ReactNode } from "react";
 import Home from "../client/src/pages/Home";
+import { homeHeroPrimaryImage } from "../client/src/components/HomeHero";
 import { AboutRoute, ContactRoute, ExperiencesRoute, SolutionsRoute } from "../client/src/pages/PageRoutes";
 import DiscoverRoute from "../client/src/pages/DiscoverRoute";
 import { NewsArticleContent, NewsRoute } from "../client/src/pages/NewsRoutes";
@@ -73,10 +74,11 @@ for (const route of routes) {
   const description = escapeHtml(route.description);
   const content = renderToStaticMarkup(route.content);
   const social = `<meta property="og:type" content="${route.type ?? "website"}" /><meta property="og:site_name" content="LJ Sports Tech" /><meta property="og:title" content="${title}" /><meta property="og:description" content="${description}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="${title}" /><meta name="twitter:description" content="${description}" />`;
+  const criticalImage = route.path === "/" ? `<link rel="preload" as="image" href="${escapeHtml(homeHeroPrimaryImage)}" fetchpriority="high" />` : "";
   const html = shell
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${description}" />`)
-    .replace("</head>", `${social}</head>`)
+    .replace("</head>", `${criticalImage}${social}</head>`)
     .replace('<div id="root"></div>', `<div id="root">${content}</div>`);
   const file = route.path === "/" ? join(output, "index.html") : route.path.endsWith(".html") ? join(output, route.path.slice(1)) : join(output, route.path.slice(1), "index.html");
   mkdirSync(dirname(file), { recursive: true });

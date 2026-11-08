@@ -189,6 +189,7 @@
 .expPage-cardLink,
 .expPage-email {
   display: inline-flex;
+  min-height: 44px;
   align-items: center;
   gap: 18px;
   font-size: 10px;
@@ -369,6 +370,12 @@
   .expPage-cardDescription { min-height: 0; }
   .expPage-catalogue { align-items: start; flex-direction: column; gap: 20px; }
   .expPage-projectTop > svg { width: 19px; }
+}
+
+@media (max-width: 900px) and (max-height: 430px) and (orientation: landscape) {
+  .expPage-hero { min-height: 0; }
+  .expPage-heroContent { padding-top: 110px; padding-bottom: 40px; }
+  .expPage-hero h1 { margin: 18px 0; font-size: clamp(36px, 7vw, 52px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

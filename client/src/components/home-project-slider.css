@@ -332,6 +332,17 @@
   outline-offset: 3px;
 }
 
+.home-project-slider__load-status {
+  margin: 0;
+  color: #374a53;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.home-project-slider__load-status:not(:empty) {
+  margin-top: 8px;
+}
+
 .home-project-slider__sr-only {
   position: absolute;
   width: 1px;

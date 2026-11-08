@@ -251,6 +251,7 @@ export default function PlayOrbit({ className }: PlayOrbitProps) {
     );
     let reducedMotion = motionPreference?.matches ?? false;
     let contextLost = false;
+    let inViewport = true;
     let hasSize = false;
     let frame: number | null = null;
     let previousTime: number | null = null;
@@ -270,7 +271,7 @@ export default function PlayOrbit({ className }: PlayOrbitProps) {
     };
     const animate = (time: number) => {
       frame = null;
-      if (reducedMotion || contextLost || document.hidden) return;
+      if (reducedMotion || contextLost || document.hidden || !inViewport) return;
       const delta =
         previousTime === null
           ? 0
@@ -290,7 +291,8 @@ export default function PlayOrbit({ className }: PlayOrbitProps) {
         frame === null &&
         !reducedMotion &&
         !contextLost &&
-        !document.hidden
+        !document.hidden &&
+        inViewport
       ) {
         frame = window.requestAnimationFrame(animate);
       }
@@ -369,6 +371,12 @@ export default function PlayOrbit({ className }: PlayOrbitProps) {
     const observer =
       typeof ResizeObserver === "undefined" ? null : new ResizeObserver(resize);
     observer?.observe(container);
+    const viewportObserver = typeof IntersectionObserver === "undefined" ? null : new IntersectionObserver(entries => {
+      inViewport = entries.some(entry => entry.isIntersecting);
+      if (inViewport) start();
+      else stop();
+    });
+    viewportObserver?.observe(container);
     window.addEventListener("resize", resize);
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: true });
@@ -388,6 +396,7 @@ export default function PlayOrbit({ className }: PlayOrbitProps) {
     return () => {
       stop();
       observer?.disconnect();
+      viewportObserver?.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("touchmove", onTouchMove);

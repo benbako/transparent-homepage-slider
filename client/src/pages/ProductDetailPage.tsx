@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowUpRight, ChevronRight } from "lucide-react";
 import type { ProductDetail, ProductSummary } from "../data/products";
+import { deferProductBodyImages, productImageVariant } from "../lib/product-images";
 import { ProductCard } from "./ProductCatalogPage";
 import "./product-pages.css";
 
@@ -12,6 +13,7 @@ export interface ProductDetailPageProps {
 function ProductGallery({ product }: { product: ProductDetail }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [failedImages, setFailedImages] = useState<Set<string>>(() => new Set());
+  const [failedPreviews, setFailedPreviews] = useState<Set<string>>(() => new Set());
   const galleryRef = useRef<HTMLDivElement>(null);
   const images = Array.from(new Set(
     [product.image, ...(product.gallery ?? [])].filter((image): image is string => Boolean(image?.trim())).map((image) => image.trim()),
@@ -28,12 +30,24 @@ function ProductGallery({ product }: { product: ProductDetail }) {
     });
   }
 
+  function markPreviewFailed(image: string) {
+    setFailedPreviews(previous => {
+      if (previous.has(image)) return previous;
+      const next = new Set(previous);
+      next.add(image);
+      return next;
+    });
+  }
+
   useEffect(() => {
     galleryRef.current?.querySelectorAll("img").forEach((image) => {
       const src = image.getAttribute("src");
-      if (src && image.complete && image.naturalWidth === 0) markFailed(src);
+      const original = image.dataset.fullsrc || src;
+      if (!src || !original || !image.complete || image.naturalWidth !== 0) return;
+      if (src !== original) markPreviewFailed(original);
+      else markFailed(original);
     });
-  }, [product.id, product.image, product.gallery, selectedImage]);
+  }, [product.id, product.image, product.gallery, selectedImage, failedPreviews]);
 
   return (
     <div ref={galleryRef} className="productDetail-gallery" aria-label="Product images">
@@ -67,7 +81,17 @@ function ProductGallery({ product }: { product: ProductDetail }) {
                 {failedImages.has(image) ? (
                   <span className="productDetail-thumbnailFallback" aria-hidden="true">{index + 1}</span>
                 ) : (
-                  <img src={image} alt="" loading="lazy" onError={() => markFailed(image)} />
+                  <img
+                    src={failedPreviews.has(image) ? image : productImageVariant(image)?.thumbnail ?? image}
+                    data-fullsrc={image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    onError={(event) => {
+                      if (event.currentTarget.getAttribute("src") !== image) markPreviewFailed(image);
+                      else markFailed(image);
+                    }}
+                  />
                 )}
               </button>
             ))}
@@ -154,7 +178,7 @@ export default function ProductDetailPage({ product, related }: ProductDetailPag
           <div className="productDetail-copy">
             <h2 id="productDetail-descriptionTitle">Product description</h2>
             {/* The product snapshot supplies pre-sanitized HTML. */}
-            <div ref={descriptionRef} className="productDetail-body" data-product-body="" dangerouslySetInnerHTML={{ __html: product.html }} />
+            <div ref={descriptionRef} className="productDetail-body" data-product-body="" dangerouslySetInnerHTML={{ __html: deferProductBodyImages(product.html) }} />
             <a className="productDetail-back" href="/products.html"><ArrowLeft size={17} aria-hidden="true" /> BACK TO ALL PRODUCTS</a>
           </div>
         </div>

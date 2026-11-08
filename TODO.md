@@ -154,3 +154,11 @@ Preparation only: the provider-neutral request validator, endpoint and client he
 - [x] Provide appropriate page metadata, content-bearing prerendered HTML and a synchronized route manifest; verify the proposed design communicates LJ's brand and meets usability best practices without publishing or switching the live domain.
 
 Verification: the showcase and News journeys were exercised in Chromium at 320, 390, 768, 901, 1280 and 1440 pixels and in Firefox and WebKit at 390 and 1440 pixels; image selection, responsive navigation, reduced motion, the fixed contact rail, archive search and all 12 pages of article links were checked. The production build includes all 70 full articles and original paths. Four extensionless legacy article links were also checked after a static-host trailing-slash repair.
+
+# Mobile responsiveness and loading speed
+
+- [x] Improve the website’s mobile responsiveness and loading speed while retaining the existing page content, approved logo, routes, accessible navigation, product galleries, sliders, 3D experiences and contact behavior.
+- [x] Reduce unnecessary initial downloads and rendering work, especially on the homepage and image-heavy pages, while preserving full-resolution originals and all image access.
+- [x] Address concrete small-screen layout or interaction issues and ensure the optimized site builds cleanly without breaking existing journeys.
+
+Verification: the homepage initially requests one hero image instead of all six; other slides and 3D effects load when needed. Product previews preserve original images, and all 818 product-description images have lazy loading and reserved dimensions. The six hero slides, showroom controls, pagination, product thumbnails and original-image fallback were exercised; checks at 320×568, 390×844 and 568×320 found no horizontal document overflow on the homepage, Experiences, News or Products. TypeScript, all 92 tests and the static build passed; the build retains 152 product details and all 70 original news paths. No live-domain or publication change was made.

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import InteriorLayout from "@/components/InteriorLayout";
 import { catalogGroups } from "@/data/productCatalog";
 import { products, productCategories, type ProductCategory, type ProductDetail, type ProductSummary } from "@/data/products";
@@ -6,10 +6,10 @@ import { getInitialProduct } from "@/initial-product";
 import { localCatalogPath } from "@/lib/catalog-links";
 import ProductCatalogPage from "./ProductCatalogPage";
 import ProductDetailPage from "./ProductDetailPage";
-import { LegacyNewsArticleRoute } from "./NewsRoutes";
 import NotFound from "./NotFound";
 import "./product-route.css";
 
+const LegacyNewsArticleRoute = lazy(() => import("./NewsRoutes").then(module => ({ default: module.LegacyNewsArticleRoute })));
 const rootCategoryPaths = new Set(catalogGroups.map(group => localCatalogPath(group.url)));
 const primaryCategories = productCategories.filter(category => rootCategoryPaths.has(category.sourcePath));
 const catalogDescription = "Explore LJ Sports Tech's indoor sports simulators and interactive entertainment equipment.";
