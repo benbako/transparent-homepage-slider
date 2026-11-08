@@ -6,6 +6,7 @@ import ContactRail from "./components/ContactRail";
 import Home from "./pages/Home";
 import { AboutRoute, ContactRoute, ExperiencesRoute, SolutionsRoute } from "./pages/PageRoutes";
 
+const DiscoverRoute = lazy(() => import("./pages/DiscoverRoute"));
 const NewsRoute = lazy(() => import("./pages/NewsRoutes").then(module => ({ default: module.NewsRoute })));
 const NewsArticleRoute = lazy(() => import("./pages/NewsRoutes").then(module => ({ default: module.NewsArticleRoute })));
 const LegacyNewsArticleRoute = lazy(() => import("./pages/NewsRoutes").then(module => ({ default: module.LegacyNewsArticleRoute })));
@@ -25,7 +26,7 @@ export default function App() {
         <Route path="/solutions" component={SolutionsRoute} />
         <Route path="/solutions.html" component={SolutionsRoute} />
         <Route path="/news" component={NewsRoute} />
-        <Route path="/news.html" component={NewsRoute} />
+        <Route path="/news.html" component={DiscoverRoute} />
         <Route path="/news/:slug" component={NewsArticleRoute} />
         <Route path="/products" component={ProductCatalogRoute} />
         <Route path="/products.html" component={ProductCatalogRoute} />

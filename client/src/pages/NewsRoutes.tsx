@@ -54,7 +54,7 @@ export function NewsArticleRoute({ params }: { params: { slug: string } }) {
   return (
     <InteriorLayout active={pageMeta.news.path} title={`${article.title} | LJ Sports Tech`} description={article.excerpt}>
       <main id="top" className="newsArticle-loading">
-        <a href="/news.html">← Back to news</a>
+        <a href="/news">← Back to news</a>
         <h1>{article.title}</h1>
         <p role="status">{error ? "This article could not be loaded. Please try again." : "Loading the full story…"}</p>
         {error && <button type="button" onClick={() => setAttempt(value => value + 1)}>Try again</button>}
@@ -66,6 +66,8 @@ export function NewsArticleRoute({ params }: { params: { slug: string } }) {
 export function LegacyNewsArticleRoute({ params }: { params: { slug: string } }) {
   const [path] = useLocation();
   const article = newsArticles.find(item => item.slug === params.slug);
-  if (!article || new URL(article.sourceUrl).pathname !== path) return <NotFound />;
+  // Static hosts may redirect an extensionless prerendered path to a slash.
+  const normalizedPath = path.length > 1 ? path.replace(/\/$/, "") : path;
+  if (!article || new URL(article.sourceUrl).pathname !== normalizedPath) return <NotFound />;
   return <NewsArticleRoute params={params} />;
 }

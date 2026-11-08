@@ -20,7 +20,7 @@ export default function NewsArticlePage({ article, articles }: { article: NewsAr
       <header className="newsArticle-hero newsPage-gutter">
         <div className="newsPage-heroGrid" aria-hidden="true" />
         <div className="newsArticle-heroInner">
-          <a className="newsArticle-back" href="/news.html"><ArrowLeft size={18} aria-hidden="true" /> BACK TO NEWS</a>
+          <a className="newsArticle-back" href="/news"><ArrowLeft size={18} aria-hidden="true" /> BACK TO NEWS</a>
           <p className="newsPage-kicker"><span /> LJ SPORTS TECH / NEWS</p>
           <h1>{article.title}</h1>
           <NewsMetadata article={article} light />
@@ -39,7 +39,7 @@ export default function NewsArticlePage({ article, articles }: { article: NewsAr
             {/* The archive extractor supplies allowlist-sanitized HTML. */}
             <div className="newsArticle-body" dangerouslySetInnerHTML={{ __html: article.html }} />
             <div className="newsArticle-end">
-              <a href="/news.html"><ArrowLeft size={17} aria-hidden="true" /> BACK TO ALL STORIES</a>
+              <a href="/news"><ArrowLeft size={17} aria-hidden="true" /> BACK TO ALL STORIES</a>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function NewsArticlePage({ article, articles }: { article: NewsAr
               <div className="newsPage-sectionLabel"><span /> KEEP READING</div>
               <h2 id="newsArticle-relatedTitle">MORE <span>STORIES.</span></h2>
             </div>
-            <a href="/news.html">VIEW ALL NEWS <ArrowUpRight size={18} aria-hidden="true" /></a>
+            <a href="/news">VIEW ALL NEWS <ArrowUpRight size={18} aria-hidden="true" /></a>
           </div>
           <div className="newsPage-cardGrid">
             {related.map((item) => <NewsCard key={item.slug} article={item} />)}

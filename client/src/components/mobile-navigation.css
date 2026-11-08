@@ -74,3 +74,11 @@
 @media (max-width: 600px) {
   .reference-home .home-hero-shell .site-header { --mobile-drawer-offset: 66px; }
 }
+
+/* Leave breathing room for all primary links near the desktop breakpoint. */
+@media (min-width: 901px) and (max-width: 1150px) {
+  .site-header .desktop-nav,
+  .reference-home .home-hero-shell .site-header .desktop-nav {
+    gap: clamp(15px, 1.75vw, 20px);
+  }
+}

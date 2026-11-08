@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import type { ReactNode } from "react";
 import Home from "../client/src/pages/Home";
 import { AboutRoute, ContactRoute, ExperiencesRoute, SolutionsRoute } from "../client/src/pages/PageRoutes";
+import DiscoverRoute from "../client/src/pages/DiscoverRoute";
 import { NewsArticleContent, NewsRoute } from "../client/src/pages/NewsRoutes";
 import { newsArticles as newsIndex } from "../client/src/data/news";
 import { ProductCatalogRoute, ProductCategoryContent, ProductDetailContent } from "../client/src/pages/ProductRoutes";
@@ -31,8 +32,8 @@ const routes: StaticPage[] = [
   { ...pageMeta.solutions, content: <SolutionsRoute /> },
   { ...pageMeta.solutions, path: "/solutions.html", content: <SolutionsRoute /> },
   { ...pageMeta.services, content: <ServicesRoute /> },
+  { ...pageMeta.discover, content: <DiscoverRoute /> },
   { ...pageMeta.news, content: <NewsRoute /> },
-  { ...pageMeta.news, path: "/news", content: <NewsRoute /> },
   { path: "/products.html", title: "Products | LJ Sports Tech", description: "Explore LJ Sports Tech's indoor sports simulators and interactive entertainment equipment.", content: <ProductCatalogRoute /> },
   { path: "/products", title: "Products | LJ Sports Tech", description: "Explore LJ Sports Tech's indoor sports simulators and interactive entertainment equipment.", content: <ProductCatalogRoute /> },
   { ...pageMeta.about, content: <AboutRoute /> },

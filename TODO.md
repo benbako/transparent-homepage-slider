@@ -145,3 +145,12 @@ Updated 19 address occurrences in website source and migrated content, retained 
 - [ ] Verify valid and invalid submissions, provider failures and accessible form behavior without sending unsolicited mail. Enable the one-way managed server only after the owner explicitly approves; do not publish the live website without authorization.
 
 Preparation only: the provider-neutral request validator, endpoint and client helper are written and tested with mock senders. They are not connected to the current form or live website; provider choice, protected credentials and approval to enable the managed server remain outstanding. No email has been sent.
+
+# Experience-led News page replacement
+
+- [x] Create a new homepage-style experiences concept at `/news.html` to replace the current News listing, using compelling LJ imagery, innovative but understandable design elements, clear brand messaging, and modern, visually appealing design.
+- [x] Make the showcase intuitive, responsive, keyboard-accessible and reduced-motion-friendly; link its experiences and calls to action to real existing LJ destinations while retaining the shared logo, navigation and contact controls.
+- [x] Preserve access to the searchable 70-article News archive at `/news`, its full original article URLs, existing `/experiences` page, homepage, product navigation and contact form; ensure News-labelled links lead to the archive.
+- [x] Provide appropriate page metadata, content-bearing prerendered HTML and a synchronized route manifest; verify the proposed design communicates LJ's brand and meets usability best practices without publishing or switching the live domain.
+
+Verification: the showcase and News journeys were exercised in Chromium at 320, 390, 768, 901, 1280 and 1440 pixels and in Firefox and WebKit at 390 and 1440 pixels; image selection, responsive navigation, reduced motion, the fixed contact rail, archive search and all 12 pages of article links were checked. The production build includes all 70 full articles and original paths. Four extensionless legacy article links were also checked after a static-host trailing-slash repair.

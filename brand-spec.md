@@ -25,3 +25,5 @@ The About page retains the official company-building image and existing shared L
 - About image refinement: the three user-supplied sports-experience visuals are displayed full-frame in the About hero (`client/public/assets/about-user/`), with the original company-building image retained in the story. The 25 factory images and 29 certificate/patent entries remain in their existing order and link to full-size originals; factory imagery is shown without cropping so the shape of each space remains visible.
 
 - Contact update: the user supplied business@ljsportstech.com as the current website contact email on November 8, 2026; website links and displayed contact details use this address.
+
+- Experience showcase: `/news.html` now uses the three previously supplied sports visuals as clearly labeled illustrative scenes and retains the shared LJ logo, original product images and navy/orange visual language. The searchable News archive remains available at `/news`, and all 70 story pages retain their existing routes.
