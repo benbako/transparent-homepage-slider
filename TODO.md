@@ -136,3 +136,12 @@ The form prepares an email-app draft to business@ljsportstech.com and clearly as
 - [x] Verify that contact links and the contact form use the new address and that the site builds successfully; do not send a message or publish the live site without authorization.
 
 Updated 19 address occurrences in website source and migrated content, retained product inquiry subjects, and verified representative page links and both form routes. The production build contains no old-address text; no email was sent.
+
+# Automatic contact notifications
+
+- [ ] Provide a backend endpoint to validate contact submissions and automatically send an email notification to business@ljsportstech.com using the selected configured email provider; visitors should not need to open an email app.
+- [ ] Keep the existing name, email, message fields, accessible labels, keyboard and validation behavior; preserve entered information on failure and give honest success or error feedback with a direct-email fallback.
+- [ ] Keep credentials server-side, reject malformed requests, provide reasonable abuse protection, preserve existing page routes and visual design, and keep the current email-app form working until automatic delivery is configured.
+- [ ] Verify valid and invalid submissions, provider failures and accessible form behavior without sending unsolicited mail. Enable the one-way managed server only after the owner explicitly approves; do not publish the live website without authorization.
+
+Preparation only: the provider-neutral request validator, endpoint and client helper are written and tested with mock senders. They are not connected to the current form or live website; provider choice, protected credentials and approval to enable the managed server remain outstanding. No email has been sent.
