@@ -2,6 +2,7 @@ import NotFound from "@/pages/NotFound";
 import { lazy, Suspense } from "react";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import ContactRail from "./components/ContactRail";
 import Home from "./pages/Home";
 import { AboutRoute, ContactRoute, ExperiencesRoute, SolutionsRoute } from "./pages/PageRoutes";
 
@@ -15,6 +16,7 @@ const ServicesRoute = lazy(() => import("./pages/ServicesRoute").then(module => 
 export default function App() {
   return (
     <ErrorBoundary>
+      <div className="site-content-with-contact-rail">
       <Suspense fallback={<div role="status" style={{ padding: "3rem", color: "#10202c" }}>Loading page…</div>}>
       <Switch>
         <Route path="/" component={Home} />
@@ -38,6 +40,8 @@ export default function App() {
         <Route component={NotFound} />
       </Switch>
       </Suspense>
+      </div>
+      <ContactRail />
     </ErrorBoundary>
   );
 }

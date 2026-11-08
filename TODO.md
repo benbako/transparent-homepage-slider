@@ -106,3 +106,10 @@ Review evidence: 25 Factory photos and 29 certificate/patent gallery entries are
 - [x] Match the existing responsive design, keep slide text legible and supplied subjects visible, and preserve the slider’s automatic rotation, manual controls, keyboard access and reduced-motion behavior.
 
 The three supplied images were added alongside the existing three slides. The six slide selections and their destinations were checked in Preview; at a 320-pixel viewport all controls fit with 44-pixel targets and no overlap with the calls to action. TypeScript and the production build passed.
+
+# Floating contact links
+
+- [x] Add visible, accessible WhatsApp and email icons on the right side of the website, centered vertically and linking to the existing LJ Sports Tech contact details.
+- [x] Preserve navigation, sliders, page content and contact functionality; ensure the icons are suitably sized, correctly aligned and do not obstruct other elements, including on small screens and when the mobile menu is open.
+
+  Checked alignment and potential control overlap at phone, tablet, laptop and desktop sizes, including short landscape; checked destinations, keyboard focus and mobile-menu isolation in Chromium, Firefox and WebKit.

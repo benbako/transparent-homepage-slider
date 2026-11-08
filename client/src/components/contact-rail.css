@@ -1,0 +1,56 @@
+.contact-rail {
+  position: fixed;
+  z-index: 9;
+  top: 50%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .22);
+}
+.contact-rail__link {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: #fff;
+}
+.contact-rail__link--whatsapp { background: #075e54; }
+.contact-rail__link--email { background: #bf4e0d; }
+.contact-rail__link + .contact-rail__link { border-top: 1px solid rgba(255, 255, 255, .35); }
+.contact-rail__link svg { width: 23px; height: 23px; }
+.contact-rail__link:hover { filter: brightness(1.12); }
+.contact-rail__link:focus-visible { position: relative; outline: 3px solid #fff; outline-offset: -5px; }
+
+/* Keep backgrounds full bleed while giving the right-edge controls their
+   own space beside content on smaller viewports. */
+@media (max-width: 900px) {
+  .contact-rail { right: env(safe-area-inset-right, 0px); }
+  .site-content-with-contact-rail :is(.productPage-gutter, .newsPage-gutter, .cp-gutter, .expPage-gutter, .sp-gutter, .services-gutter, .page-gutter, .aboutx .aboutx-gutter, .about-gallery-section, .about-gallery-nav) {
+    padding-right: calc(clamp(24px, 5.55vw, 100px) + 50px + env(safe-area-inset-right, 0px)) !important;
+  }
+  .reference-home .home-catalogue__inner,
+  .reference-home .home-lower .hl-container {
+    padding-right: calc(50px + env(safe-area-inset-right, 0px));
+  }
+  .reference-home .home-project-slider {
+    padding-right: calc(20px + 50px + env(safe-area-inset-right, 0px));
+  }
+}
+@media (max-width: 600px) {
+  .site-content-with-contact-rail .reference-home .home-hero-shell .hero-slider-controls {
+    left: calc(50% - 25px - env(safe-area-inset-right, 0px) / 2);
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+@media (min-width: 901px) and (max-width: 1320px) {
+  .reference-home .home-lower .hl-promo-inner { padding-right: 50px; }
+}
+@media (max-height: 360px) {
+  .contact-rail { top: calc(50% + 30px); }
+}
