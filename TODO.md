@@ -75,3 +75,11 @@ The accessible source snapshot contains 70 full articles with 143 locally optimi
 - [x] Preserve the original site’s Home, About, Contact, Solutions and Services navigation paths alongside the new site’s routes, including a usable Services destination and honest catalog-request alternative where the old download cannot be copied.
 
 The November 7 snapshot includes 152 product details, 38 English categories and 192 original product/category paths. All 70 article texts remained intact; all 190 local article links had built destinations. Representative mobile and desktop product, category, article and menu journeys passed in Chromium, Firefox and WebKit. The original product URLs now open the migrated local pages rather than leaving the site. The live domain was not changed. See product-migration-notes.md for the catalog PDF and post-publication 404 checks.
+
+# Homepage project slider
+
+- [x] Add a functional, visually appealing project slider to the homepage that complements the existing design and is engaging for the intended audience.
+- [x] Preserve all existing homepage content, sections, navigation, links, hero slider and product showroom unchanged; use accurately labeled project imagery and working destinations.
+- [x] Make the slider easy to use on desktop and mobile, with accessible controls and reduced-motion support, and review the finished output for clarity and flow.
+
+The four-slide section uses one documented customer story and three clearly labeled product-led ideas. The original homepage source is unchanged apart from the new imports and section insertion; its existing anchors and product/news routes remain available. The production build, slide controls, reduced-motion behavior and narrow-screen layout were checked.

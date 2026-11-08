@@ -1,10 +1,12 @@
 import { useState } from "react";
 import HomeHero from "@/components/HomeHero";
 import HomeCatalogue from "@/components/HomeCatalogue";
+import HomeProjectSlider from "@/components/HomeProjectSlider";
 import HomeLower from "@/components/HomeLower";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import type { ProductShowroomItem } from "@/components/ProductShowroom";
+import { projectSlides } from "@/data/project-inspiration";
 
 const experiences: ProductShowroomItem[] = [
   {
@@ -56,6 +58,7 @@ export default function Home() {
       <main>
         <HomeHero />
         <HomeCatalogue items={experiences} selected={selected} onSelect={setSelected} />
+        <HomeProjectSlider slides={projectSlides} />
         <HomeLower />
       </main>
       <div className="home-lower"><div className="hl-footer-wrap"><div className="hl-container"><SiteFooter /></div></div></div>
