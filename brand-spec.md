@@ -15,3 +15,7 @@
 
 The November 2026 homepage uses the uploaded screenshot only as a structural and visual reference: a white header and catalog, dark cinematic hero, warm orange actions, product grids, solution cards, and a dark contact/footer. LJ's own logo, real product photography, original copy, and existing navigation remain in use. Interior pages retain their previous blue-and-navy design. The isometric venue in the first hero slide (`/manus-storage/async-images/QIghVlGM0UfFWsKq8QK7U4/image-1.webp`) is an original generated concept, labeled as a concept visual, not a photograph of an actual LJ installation.
 - The homepage's `/assets/pickleball-catalog.webp` is a product-focused crop of LJ's existing pickleball illustration; it removes an unverified embedded specification panel and is visibly labeled as an illustration.
+
+## About page design extension
+
+The About page retains the official company-building image and existing shared LJ branding. Its interactive court-and-screen scene is an original, clearly labeled concept illustration—not a photograph of a product or installation. The company history, product development, customization and installation support come from https://www.ljsportstech.com/about-us.html; 3D venue-rendering support is described on https://www.ljsportstech.com/. The site's customer-story article describes the mission as “Make Sports Easier.” The three design values are editorial themes rather than a claim of a formally published corporate-values list.

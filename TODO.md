@@ -83,3 +83,11 @@ The November 7 snapshot includes 152 product details, 38 English categories and 
 - [x] Make the slider easy to use on desktop and mobile, with accessible controls and reduced-motion support, and review the finished output for clarity and flow.
 
 The four-slide section uses one documented customer story and three clearly labeled product-led ideas. The original homepage source is unchanged apart from the new imports and section insertion; its existing anchors and product/news routes remain available. The production build, slide controls, reduced-motion behavior and narrow-screen layout were checked.
+
+# Expanded About Us page
+
+- [x] Review the company information at https://www.ljsportstech.com/about-us.html and expand the existing About page with a clear, detailed account of LJ Sports Tech’s mission, guiding values and design approach, using supported facts and language suitable for adults and children.
+- [x] Add a visually engaging 3D-inspired presentation that explains how sports, technology and venue design come together, clearly identifying conceptual artwork and providing a useful accessible fallback.
+- [x] Preserve the existing About page’s story, timeline, capabilities, contact and solutions links, shared navigation and both `/about` and `/about-us.html` routes; keep the expanded page responsive and review its clarity, flow and accessibility before delivery.
+
+The new content builds on the official company profile and explains the mission, editorial design values and project process in plain language. The original page content and both About URLs remain intact. The 3D concept, rotate controls and static WebGL fallback were checked at phone and desktop sizes; the production build and prerendered content passed.

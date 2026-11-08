@@ -37,3 +37,7 @@ Preserve the source site's `/index.html`, `/solutions.html`, `/about-us.html`, `
 ## Homepage project slider extension
 
 Mode: extension. Preserve all existing homepage content and journeys. Add a standalone project-stories-and-inspiration slider between the product showroom and the existing solutions section, reusing the homepage's white/navy/orange visual language and existing LJ imagery. Lead with the documented Thailand customer story, then label product-led ideas as inspiration rather than completed installations. Use labeled, manual controls with touch and keyboard support, no unsolicited autoplay, and a reduced-motion fallback. Link each slide to an existing relevant destination.
+
+## About Us expansion
+
+Mode: extension of the existing interior page. Preserve the company building photo, original story and 2018/2020 timeline, capability list, navigation, CTA and both About routes. Add accessible, family-friendly mission and values copy plus a design-process section. Keep the established navy, blue, white and Archivo/Manrope typography; introduce a small interactive, labeled 3D concept of an indoor play space without portraying it as a real product or installation. Respect reduced motion and provide a non-WebGL fallback. Source: https://www.ljsportstech.com/about-us.html (company history, digital sports R&D/manufacture, customization, venue planning and installation support); https://www.ljsportstech.com/ (3D venue-layout planning). Values are presented as an editorial description of the approach, not a verified formal corporate values statement.

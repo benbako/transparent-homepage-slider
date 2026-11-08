@@ -1,4 +1,6 @@
 import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
+import AboutExpansion from "@/components/AboutExpansion";
+import AboutDesignScene from "@/components/AboutDesignScene";
 import "./company-pages.css";
 
 const capabilities = [
@@ -59,6 +61,8 @@ export default function AboutPage() {
           <div><span>2020</span><strong>GUANGZHOU</strong><p>Relocated to Guangzhou</p></div>
         </div>
       </section>
+
+      <AboutExpansion scene={<AboutDesignScene />} />
 
       <section className="cp-capabilities cp-gutter" aria-labelledby="capabilities-title">
         <div className="cp-capabilities__head">
