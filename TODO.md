@@ -121,3 +121,11 @@ The three supplied images were added alongside the existing three slides. The si
 - [x] Verify that all three previously supplied LJ Sports Tech images and every existing factory photo and certificate are incorporated and load correctly, including full-image links.
 
 All three supplied images match the originals byte-for-byte; the company image, 25 factory photos, 29 certificate/patent links and 3D scene remain present. Image loading and full-size links passed in Chromium, Firefox and WebKit at phone and desktop widths; the static build and 3D fallback passed.
+
+# Contact Us form
+
+- [x] Add a functional, user-friendly Contact Us form to `/contactus.html` and its existing `/contact` alias with required name, email and message fields and a submit button, opening the visitor’s email app with a draft addressed to business@ljsportstech.com.
+- [x] Match the existing Contact page design and preserve its email, phone, WhatsApp, address and navigation; provide accessible labels, keyboard operation, validation, meaningful submission feedback, error handling and responsive layout.
+- [x] Verify the fields, required-field and email validation, submit behavior, accessibility, and retained page routes without claiming messages were delivered unless confirmed by the chosen transport.
+
+The form prepares an email-app draft to business@ljsportstech.com and clearly asks the visitor to send it; entered fields remain visible and oversized drafts are not silently truncated. Required-field and email validation, keyboard focus, encoded draft contents, and phone/desktop layouts passed in Chromium, Firefox and WebKit. No test email was sent. TypeScript, focused unit tests, and the static build passed.

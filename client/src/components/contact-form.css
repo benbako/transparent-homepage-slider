@@ -1,0 +1,346 @@
+.lj-contact-form {
+  padding: 44px clamp(24px, 5.55vw, 100px) 110px;
+  background: #09131d;
+  color: #f5f7f8;
+  scroll-margin-top: 100px;
+}
+
+.lj-contact-form__topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #34434e;
+  color: #aabac6;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+}
+
+.lj-contact-form__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(40px, 7vw, 120px);
+  align-items: start;
+  padding-top: 86px;
+}
+
+.lj-contact-form__intro {
+  min-width: 0;
+}
+
+.lj-contact-form__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #d8e7f3;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+}
+
+.lj-contact-form__eyebrow > span {
+  width: 32px;
+  height: 2px;
+  flex: none;
+  background: #3aa7ff;
+}
+
+.lj-contact-form__intro h2 {
+  max-width: 650px;
+  margin: 30px 0 24px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(42px, 4.7vw, 74px);
+  letter-spacing: -0.065em;
+  line-height: 1.02;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.lj-contact-form__intro h2 span {
+  color: #339fff;
+}
+
+.lj-contact-form__intro > p {
+  max-width: 400px;
+  color: #c8d5de;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.lj-contact-form__email {
+  display: grid;
+  gap: 12px;
+  max-width: 440px;
+  margin-top: 54px;
+  padding-top: 22px;
+  border-top: 1px solid #34434e;
+}
+
+.lj-contact-form__email > span {
+  color: #a7c0d1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.lj-contact-form__email a {
+  width: fit-content;
+  max-width: 100%;
+  color: #f4f8fb;
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: #5b829f;
+  text-underline-offset: 5px;
+}
+
+.lj-contact-form__email a span {
+  color: #7ec8ff;
+}
+.lj-contact-form__email a:hover {
+  color: #9bd2ff;
+}
+
+.lj-contact-form__panel {
+  min-width: 0;
+  padding: clamp(24px, 3.3vw, 48px);
+  border-top: 2px solid #328fe4;
+  background: #10212e;
+}
+
+.lj-contact-form__panel-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #3a505e;
+  color: #c8dce9;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+}
+
+.lj-contact-form__panel-heading span:last-child {
+  color: #a7c0d1;
+}
+
+.lj-contact-form__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px 20px;
+  padding-top: 28px;
+}
+
+.lj-contact-form__field {
+  min-width: 0;
+}
+.lj-contact-form__field--message {
+  grid-column: 1 / -1;
+}
+
+.lj-contact-form__field label {
+  display: block;
+  margin-bottom: 10px;
+  color: #f4f8fb;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.lj-contact-form__field label span {
+  color: #7ec8ff;
+}
+
+.lj-contact-form__field input,
+.lj-contact-form__field textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 13px 14px;
+  border: 1px solid #617987;
+  border-radius: 0;
+  background: #0b1a25;
+  color: #f5f7f8;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.lj-contact-form__field textarea {
+  min-height: 154px;
+  resize: vertical;
+}
+
+.lj-contact-form__field input:hover,
+.lj-contact-form__field textarea:hover {
+  border-color: #a7c0d1;
+}
+
+.lj-contact-form__field input:focus-visible,
+.lj-contact-form__field textarea:focus-visible,
+.lj-contact-form__email a:focus-visible,
+.lj-contact-form__actions button:focus-visible {
+  outline: 3px solid #67bcff;
+  outline-offset: 3px;
+}
+
+.lj-contact-form__field input[aria-invalid="true"],
+.lj-contact-form__field textarea[aria-invalid="true"] {
+  border-color: #ffb4a8;
+}
+
+.lj-contact-form__field input[readonly],
+.lj-contact-form__field textarea[readonly] {
+  background: #142a39;
+}
+
+.lj-contact-form__error {
+  margin: 8px 0 0;
+  color: #ffc4bb;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.lj-contact-form__hint {
+  margin: 8px 0 0;
+  color: #c1d0db;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.lj-contact-form__actions {
+  margin-top: 30px;
+}
+
+.lj-contact-form__actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 56px;
+  min-width: 205px;
+  max-width: 100%;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 0;
+  background: #0868b4;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lj-contact-form__actions button span {
+  font-size: 18px;
+  line-height: 1;
+}
+.lj-contact-form__actions button:not(:disabled):hover {
+  background: #00599e;
+  transform: translateY(-3px);
+}
+.lj-contact-form__actions button:not(:disabled):active {
+  transform: translateY(0);
+}
+.lj-contact-form__actions button:disabled {
+  background: #385b73;
+  color: #e2edf4;
+  cursor: wait;
+}
+
+.lj-contact-form__status {
+  margin: 0;
+  color: #d8e7f3;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.lj-contact-form__status:not(:empty) {
+  margin-top: 18px;
+}
+.lj-contact-form__status--success {
+  color: #b6e4ff;
+}
+.lj-contact-form__status--error {
+  color: #ffc4bb;
+}
+
+@media (max-width: 900px) {
+  .site-content-with-contact-rail .lj-contact-form {
+    padding-right: calc(
+      clamp(24px, 5.55vw, 100px) + 50px + env(safe-area-inset-right, 0px)
+    );
+  }
+
+  .lj-contact-form {
+    padding-bottom: 85px;
+  }
+  .lj-contact-form__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding-top: 65px;
+  }
+  .lj-contact-form__intro h2 {
+    max-width: 700px;
+    font-size: clamp(42px, 7.5vw, 66px);
+  }
+  .lj-contact-form__email {
+    margin-top: 35px;
+  }
+}
+
+@media (max-width: 560px) {
+  .lj-contact-form {
+    padding-top: 34px;
+    padding-bottom: 65px;
+  }
+  .lj-contact-form__topline span:last-child {
+    display: none;
+  }
+  .lj-contact-form__layout {
+    padding-top: 48px;
+  }
+  .lj-contact-form__intro h2 {
+    font-size: clamp(36px, 9vw, 50px);
+  }
+  .lj-contact-form__fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lj-contact-form__field--message {
+    grid-column: auto;
+  }
+  .lj-contact-form__actions button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lj-contact-form__field input,
+  .lj-contact-form__field textarea,
+  .lj-contact-form__actions button {
+    transition: none;
+  }
+  .lj-contact-form__actions button:not(:disabled):hover {
+    transform: none;
+  }
+}

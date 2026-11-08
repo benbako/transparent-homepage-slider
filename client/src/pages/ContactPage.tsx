@@ -1,4 +1,6 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
+import { openContactEmail } from "@/lib/contact-email";
 import "./company-pages.css";
 
 export default function ContactPage() {
@@ -34,6 +36,8 @@ export default function ContactPage() {
         </div>
         <div className="cp-hero-bottom"><span>SPORTS × TECHNOLOGY × PLAY</span><span>CONTACT / LJ SPORTS TECH</span></div>
       </section>
+
+      <ContactForm deliver={openContactEmail} />
 
       <section className="cp-location cp-gutter" aria-labelledby="location-title">
         <div className="cp-location__top"><span>FIND US</span><span>GUANGZHOU, CHINA</span></div>
