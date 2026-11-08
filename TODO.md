@@ -129,3 +129,10 @@ All three supplied images match the originals byte-for-byte; the company image, 
 - [x] Verify the fields, required-field and email validation, submit behavior, accessibility, and retained page routes without claiming messages were delivered unless confirmed by the chosen transport.
 
 The form prepares an email-app draft to business@ljsportstech.com and clearly asks the visitor to send it; entered fields remain visible and oversized drafts are not silently truncated. Required-field and email validation, keyboard focus, encoded draft contents, and phone/desktop layouts passed in Chromium, Firefox and WebKit. No test email was sent. TypeScript, focused unit tests, and the static build passed.
+
+# Contact email update
+
+- [x] Replace the previous contact email throughout the website with the newly supplied business@ljsportstech.com, including visible contact details, form fallback, floating contact icon, footer, product inquiries and relevant migrated content, while preserving existing link subjects and page functionality.
+- [x] Verify that contact links and the contact form use the new address and that the site builds successfully; do not send a message or publish the live site without authorization.
+
+Updated 19 address occurrences in website source and migrated content, retained product inquiry subjects, and verified representative page links and both form routes. The production build contains no old-address text; no email was sent.

@@ -9,3 +9,5 @@ The source Services page linked to a PDF through a `/phoenix/admin/download` end
 No domain, DNS, or live-site cutover is performed by this project update. After publication and domain configuration, test the original URLs on the actual public host before switching traffic.
 
 The development Preview currently serves the SPA shell with HTTP 200 for unknown URLs before showing a not-found page in the browser. The published hosting gateway may behave differently; verify real HTTP 404 status for nonexistent URLs on the final public host as part of cutover testing.
+
+On November 8, 2026, at the owner's request, the displayed contact email in four product descriptions was updated to business@ljsportstech.com; their remaining content was unchanged by that update.

@@ -80,7 +80,7 @@ function ProductGallery({ product }: { product: ProductDetail }) {
 
 export default function ProductDetailPage({ product, related }: ProductDetailPageProps) {
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const inquiry = `mailto:sarah@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${product.title}`)}`;
+  const inquiry = `mailto:business@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${product.title}`)}`;
 
   // The source HTML is sanitized upstream. Replace failed embedded images with text,
   // including their alt text, without changing or suppressing the surrounding content.

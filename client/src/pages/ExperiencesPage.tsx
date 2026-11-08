@@ -58,7 +58,7 @@ const filters: ExperienceFilter[] = ["All", "Racket", "Ball", "Adventure"];
 const catalogueUrl = "/Sports-Simulator-pl45801697.html";
 
 function ExperienceCard({ experience }: { experience: Experience }) {
-  const inquiry = `mailto:sarah@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${experience.name} simulator`)}`;
+  const inquiry = `mailto:business@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${experience.name} simulator`)}`;
 
   return (
     <article className="expPage-card">
@@ -179,7 +179,7 @@ export default function ExperiencesPage() {
           <div className="expPage-projectCopy">
             <p>Have a venue or an idea in mind? Talk to our team about the right experiences for your space, from selection and planning to installation support.</p>
             <a className="expPage-darkButton" href="/contact">START A CONVERSATION <ArrowUpRight size={18} aria-hidden="true" /></a>
-            <a className="expPage-email" href="mailto:sarah@ljsportstech.com">sarah@ljsportstech.com <ArrowUpRight size={15} aria-hidden="true" /></a>
+            <a className="expPage-email" href="mailto:business@ljsportstech.com">business@ljsportstech.com <ArrowUpRight size={15} aria-hidden="true" /></a>
           </div>
         </div>
       </section>

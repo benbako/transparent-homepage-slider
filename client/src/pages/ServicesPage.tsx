@@ -144,7 +144,7 @@ export default function ServicesPage() {
               Tell us what you are looking for and request the product catalog
               from the LJ team.
             </p>
-            <a className="services-button services-button--dark" href="mailto:sarah@ljsportstech.com?subject=Product%20catalog%20request">
+            <a className="services-button services-button--dark" href="mailto:business@ljsportstech.com?subject=Product%20catalog%20request">
               REQUEST THE PRODUCT CATALOG <ArrowUpRight size={18} aria-hidden="true" />
             </a>
           </div>

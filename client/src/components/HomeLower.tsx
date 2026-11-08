@@ -158,8 +158,8 @@ export default function HomeLower() {
           </div>
           <div className="hl-contact-card" aria-label="Direct contact options">
             <p>START A CONVERSATION</p>
-            <a href="mailto:sarah@ljsportstech.com">
-              <span><small>EMAIL</small><strong>sarah@ljsportstech.com</strong></span>
+            <a href="mailto:business@ljsportstech.com">
+              <span><small>EMAIL</small><strong>business@ljsportstech.com</strong></span>
               <ArrowUpRight size={20} aria-hidden="true" />
             </a>
             <a href="tel:+8619927435575">

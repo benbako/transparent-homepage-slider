@@ -245,7 +245,7 @@ export default function ProductShowroom({ items, selected, onSelect }: ProductSh
         </div>
         <div>
           <p>{current.description}</p>
-          <a className="product-showroom__inquiry" href={`mailto:sarah@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${current.name} simulator`)}`}>
+          <a className="product-showroom__inquiry" href={`mailto:business@ljsportstech.com?subject=${encodeURIComponent(`Inquiry about ${current.name} simulator`)}`}>
             ASK ABOUT {current.name.toUpperCase()} <ArrowUpRight size={17} aria-hidden="true" />
           </a>
         </div>

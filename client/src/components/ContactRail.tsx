@@ -21,7 +21,7 @@ export default function ContactRail() {
       </a>
       <a
         className="contact-rail__link contact-rail__link--email"
-        href="mailto:sarah@ljsportstech.com"
+        href="mailto:business@ljsportstech.com"
         aria-label="Email LJ Sports Tech"
         title="Email us"
       >

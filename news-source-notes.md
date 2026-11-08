@@ -7,3 +7,5 @@ The source sitemap and accessible listing pages identified 70 unique article URL
 The article body markup is allowlist-sanitized; executable markup and an interactive form were removed. Product and category links in the source stories continue to point to the existing LJ website. Before changing the live `ljsportstech.com` domain to serve this project, migrate or otherwise preserve those product/category destinations; the present project contains product navigation links, not full product detail pages.
 
 The 143 distinct news images were copied from the source's public image hosts, resized without cropping and optimized into `client/public/news-images/` because the remote CDN was not reliable in browser testing. Article bodies use local paths, and the original article URLs remain in the index for reference. Article body text was compared against the extracted source text after the image and internal-link updates, with no text changes detected.
+
+On November 8, 2026, at the owner's request, the displayed contact email in one imported article was updated to business@ljsportstech.com. All other article text was left unchanged by that update.
