@@ -68,3 +68,7 @@ Mode: preserve. Retain the approved LJ logo, visual identity, page content, imag
 ## Full-width homepage slider visual
 
 Mode: extension. Add one original, high-resolution, concept-labeled sports-experience visual to the existing homepage hero without removing any existing slides, supplied photos, logo, copy, routes or interactions. Use a wide full-bleed composition with a legible text-safe area and a focal point suitable for mobile; serve an optimized image while preserving the high-quality source. Keep the existing deferred slide loading, manual controls, autoplay pause, keyboard access and reduced-motion support. Adapt slide navigation only as needed to keep every slide accessible on narrow screens. Do not publish or change the live domain.
+
+## Slider image full-view correction
+
+Mode: targeted correction. Preserve the user-supplied original and the existing “One Space Many Ways To Play” slide. Fit the complete original image into its slider area proportionally, with the existing dark background filling any remaining space; keep the text legible, other slides and slider interactions unchanged, and adapt the image placement for narrow screens. Do not alter the source image, logo, site content, or publication settings.

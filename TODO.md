@@ -169,3 +169,10 @@ Verification: the homepage initially requests one hero image instead of all six;
 - [x] Size and optimize the visual for fast loading and responsive screens without compromising image quality; preserve all existing slides, supplied photographs, logo, slider controls and site content.
 
 Verification: the 1920 × 1080 concept image is served as a roughly 272 KiB WebP and is the only initially loaded hero image. The slider retains all six existing slides and their assets; all seven controls work. Full-width framing, touch-target sizes, and overflow were checked at 320 × 568, 390 × 844, 568 × 320, 768 × 1024 and 1440 × 900. Desktop and mobile framing were visually reviewed; TypeScript, tests and the static build passed.
+
+# Slider image full-view correction
+
+- [x] Correct the framing of the pictured “One Space Many Ways To Play” slider image so its original composition is displayed without stretching or avoidable cropping, while maintaining its original aspect ratio and clarity.
+- [x] Preserve the original photo, slider copy, controls, other slides, and responsive site behavior.
+
+Verification: the unchanged 2048 × 1152 original is displayed with proportional `contain` sizing and no zoom crop. The full subject and composition were visually checked on desktop and mobile, and the image, text, seven slide selectors, and overflow were checked from 320 to 1440 pixels, including landscape. TypeScript, the test suite, and the static build passed. The live site was not republished.
