@@ -25,6 +25,7 @@ type HeroSlide = {
   copySide?: "right";
   subjectSide?: "left";
   fullBleed?: boolean;
+  interactiveLight?: boolean;
 };
 
 export const homeHeroPrimaryImage = "/manus-storage/async-images/C3Kt1JyTfjUIMFpKeiEBJs/image-1.webp";
@@ -40,6 +41,18 @@ const slides: HeroSlide[] = [
     label: "Move, play, connect",
     caption: "CONCEPT VISUAL",
     fullBleed: true,
+  },
+  {
+    eyebrow: "A WORLD IN MOTION",
+    first: "MOVE", outlined: "LIGHT UP", last: "THE GAME",
+    description: "Discover immersive sports experiences that turn movement into moments worth sharing.",
+    primary: { text: "EXPLORE EXPERIENCES", href: "#experiences" },
+    secondary: { text: "START A PROJECT", href: "/contact" },
+    image: "/manus-storage/async-images/oiKccxMespnMelSHYGdHMh/image-1.webp",
+    label: "A world in motion",
+    caption: "CONCEPT VISUAL",
+    fullBleed: true,
+    interactiveLight: true,
   },
   {
     eyebrow: "A NEW DIMENSION OF SPORT",
@@ -292,7 +305,7 @@ export default function HomeHero() {
         </div>)}
       </div>
       <div className="hero-grid" aria-hidden="true" />
-      <HeroDepth key={slide.label} />
+      <HeroDepth interactiveLight={slide.interactiveLight} />
       {showOrbit && <DecorativeBoundary><Suspense fallback={null}><PlayOrbit className="hero-orbit" /></Suspense></DecorativeBoundary>}
       <div className="hero-content page-gutter" role="group" aria-roledescription="slide" aria-label={`${active + 1} of ${slides.length}`} aria-live={playing && !hovered ? "off" : "polite"} key={slide.label}>
         <div className="eyebrow hero-eyebrow"><span className="eyebrow-line" /> {slide.eyebrow}</div>

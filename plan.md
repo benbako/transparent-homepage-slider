@@ -76,3 +76,7 @@ Mode: targeted correction. Preserve the user-supplied original and the existing 
 ## 5D-inspired motion extension
 
 Mode: extension. Enhance the existing sports-editorial look with a lightweight cinematic depth layer on the homepage hero: gentle, short-lived light trails and layered perspective details, plus subtle pointer-responsive parallax on fine-pointer devices. Add a restrained three-dimensional lift to existing experience cards, complementing the interactive product showroom and 3D orbit already present. Preserve all photographs, including the uncropped slide, copy, routes, controls, logo, responsive layouts and existing contact behavior. Use no new imagery or heavy dependencies, animate transforms/opacity, respect reduced-motion preferences, avoid blocking controls, and keep content available without JavaScript. No publication or domain change.
+
+## Interactive slider image and cursor lighting
+
+Mode: extension. Add a new concept-labeled, original sports-experience image to the homepage hero without removing any existing slides or photographs. Reuse the existing restrained navy, orange and blue identity and the hero's lazy loading, pause controls and focus behavior. Add a low-intensity, pointer-following light and particle accent on the new slide using a decorative pointer-transparent layer and requestAnimationFrame-coalesced updates; keep the slide usable without a mouse and with reduced motion. Preserve the previous full-view photo and all routes, text and contact behavior. Do not publish or change the domain.

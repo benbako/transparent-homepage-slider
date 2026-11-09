@@ -183,3 +183,10 @@ Verification: the unchanged 2048 × 1152 original is displayed with proportional
 - [x] Keep the site responsive and fast, honor reduced-motion preferences, and preserve the full-view user-supplied photo, all content, logo, links, sliders, accessible controls, and contact behavior.
 
 Verification: lightweight animated hero layers react to mouse movement without intercepting input, and experience cards add a small 3D hover lift; the existing 3D showroom and orbit remain intact. Reduced-motion mode disables the new effects. Desktop and mobile layouts were reviewed; the seven-slide navigation and uncropped supplied photo remain intact, and TypeScript, the automated tests and static build passed. No live-site publication or domain change was made.
+
+# Interactive light slider image
+
+- [x] Create a visually appealing sports-themed slider image for a general audience and add it without removing or altering existing slides or user-supplied photos.
+- [x] Implement subtle particle or lighting effects that respond dynamically to cursor position without overwhelming the scene or blocking controls; retain mobile usability, reduced-motion support and existing slider behavior.
+
+Verification: added an original sports-experience concept slide with an eight-item accessible hero control set. A low-intensity cursor-following glow and three small particles respond through a requestAnimationFrame-coalesced decorative layer; the layer does not intercept controls, fades when the pointer leaves, and is disabled for reduced motion. The image and effect were reviewed in Preview, including mobile layout. The full test suite, TypeScript check, static build and whitespace check passed; 345 pages were prerendered. The live site was not republished.
