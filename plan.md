@@ -64,3 +64,7 @@ Design read: sports-editorial landing page for venue operators and families; var
 ## Mobile and loading optimization
 
 Mode: preserve. Retain the approved LJ logo, visual identity, page content, image originals, routes and accessible interactions. Audit small-screen layout, image delivery and initial JavaScript; target measured bottlenecks with bounded code-splitting, deferred noncritical media and adaptive CSS. Keep all existing sliders, navigation, product/news detail paths, 3D experiences and contact-form behavior. Prefer native browser loading and existing dependencies; retain fallbacks and reduced-motion support. No domain or publication change is planned.
+
+## Full-width homepage slider visual
+
+Mode: extension. Add one original, high-resolution, concept-labeled sports-experience visual to the existing homepage hero without removing any existing slides, supplied photos, logo, copy, routes or interactions. Use a wide full-bleed composition with a legible text-safe area and a focal point suitable for mobile; serve an optimized image while preserving the high-quality source. Keep the existing deferred slide loading, manual controls, autoplay pause, keyboard access and reduced-motion support. Adapt slide navigation only as needed to keep every slide accessible on narrow screens. Do not publish or change the live domain.

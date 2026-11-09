@@ -162,3 +162,10 @@ Verification: the showcase and News journeys were exercised in Chromium at 320, 
 - [x] Address concrete small-screen layout or interaction issues and ensure the optimized site builds cleanly without breaking existing journeys.
 
 Verification: the homepage initially requests one hero image instead of all six; other slides and 3D effects load when needed. Product previews preserve original images, and all 818 product-description images have lazy loading and reserved dimensions. The six hero slides, showroom controls, pagination, product thumbnails and original-image fallback were exercised; checks at 320×568, 390×844 and 568×320 found no horizontal document overflow on the homepage, Experiences, News or Products. TypeScript, all 92 tests and the static build passed; the build retains 152 product details and all 70 original news paths. No live-domain or publication change was made.
+
+# Full-width slider image
+
+- [x] Create a visually appealing full-width homepage slider image using a high-resolution sports-themed visual that showcases its subject and fits LJ Sports Tech's existing design.
+- [x] Size and optimize the visual for fast loading and responsive screens without compromising image quality; preserve all existing slides, supplied photographs, logo, slider controls and site content.
+
+Verification: the 1920 × 1080 concept image is served as a roughly 272 KiB WebP and is the only initially loaded hero image. The slider retains all six existing slides and their assets; all seven controls work. Full-width framing, touch-target sizes, and overflow were checked at 320 × 568, 390 × 844, 568 × 320, 768 × 1024 and 1440 × 900. Desktop and mobile framing were visually reviewed; TypeScript, tests and the static build passed.

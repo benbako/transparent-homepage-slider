@@ -23,18 +23,30 @@ type HeroSlide = {
   caption: string;
   copySide?: "right";
   subjectSide?: "left";
+  fullBleed?: boolean;
 };
 
-export const homeHeroPrimaryImage = "/manus-storage/async-images/QIghVlGM0UfFWsKq8QK7U4/image-1.webp";
+export const homeHeroPrimaryImage = "/manus-storage/async-images/C3Kt1JyTfjUIMFpKeiEBJs/image-1.webp";
 
 const slides: HeroSlide[] = [
+  {
+    eyebrow: "STEP INTO THE EXPERIENCE",
+    first: "MOVE", outlined: "PLAY", last: "CONNECT",
+    description: "Interactive sports experiences that bring people, technology and play together.",
+    primary: { text: "EXPLORE EXPERIENCES", href: "#experiences" },
+    secondary: { text: "START A PROJECT", href: "/contact" },
+    image: homeHeroPrimaryImage,
+    label: "Move, play, connect",
+    caption: "CONCEPT VISUAL",
+    fullBleed: true,
+  },
   {
     eyebrow: "A NEW DIMENSION OF SPORT",
     first: "PLAY", outlined: "BEYOND", last: "LIMITS",
     description: "Real movement. Digital worlds. Unforgettable experiences. Let's bring a new kind of play to your space.",
     primary: { text: "EXPLORE EXPERIENCES", href: "#experiences" },
     secondary: { text: "DISCOVER LJ", href: "#about" },
-    image: homeHeroPrimaryImage,
+    image: "/manus-storage/async-images/QIghVlGM0UfFWsKq8QK7U4/image-1.webp",
     label: "Play beyond limits",
     caption: "CONCEPT VISUAL",
   },
@@ -256,7 +268,7 @@ export default function HomeHero() {
     onPointerLeave={event => { if (event.pointerType === "mouse") setHovered(false); }}
     onFocusCapture={() => { cancelAutomatic(); setPlaying(false); }}
   >
-    <section className={`hero${slide.copySide === "right" ? " hero--copy-right" : ""}`} aria-roledescription="carousel" aria-label="Featured sports experiences">
+    <section className={`hero${slide.copySide === "right" ? " hero--copy-right" : ""}${slide.fullBleed ? " hero--fullbleed" : ""}`} aria-roledescription="carousel" aria-label="Featured sports experiences">
       <div className="hero-backgrounds" aria-hidden="true">
         {slides.map((item, index) => <div key={item.label} className={`hero-image hero-slide-image${item.subjectSide === "left" ? " hero-slide-image--subject-left" : ""}${index === active ? " is-visible" : ""}`}>
           <img

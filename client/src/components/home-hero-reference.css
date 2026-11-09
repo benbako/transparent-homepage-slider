@@ -107,6 +107,13 @@
     linear-gradient(0deg, rgba(5, 13, 20, .8), transparent 30%);
 }
 
+/* The new photographic slide remains visible across the full frame, with a
+   quieter text-safe edge and a subtle dark base for the controls. */
+.reference-home .home-hero-shell .hero--fullbleed .hero-backgrounds::after {
+  background: linear-gradient(90deg, rgba(9, 22, 32, .88) 0%, rgba(9, 22, 32, .68) 27%, rgba(9, 22, 32, .12) 72%),
+    linear-gradient(0deg, rgba(5, 13, 20, .72), transparent 28%);
+}
+
 .reference-home .home-hero-shell .hero-image {
   background-position: center center;
   background-size: cover;
@@ -119,6 +126,8 @@
   object-fit: cover;
   object-position: center center;
 }
+
+.reference-home .home-hero-shell .hero--fullbleed .hero-slide-image img { object-position: 50% 22%; }
 
 .reference-home .home-hero-shell .hero-slide-image { transition: opacity .7s ease, transform 7s ease; }
 .reference-home .home-hero-shell .hero-grid { opacity: .06; }
@@ -396,17 +405,21 @@
     background: linear-gradient(180deg, rgba(9, 22, 32, .82) 0%, rgba(9, 22, 32, .75) 45%, rgba(9, 22, 32, .43) 72%, rgba(5, 13, 20, .85) 100%),
       linear-gradient(90deg, rgba(9, 22, 32, .7), transparent 100%);
   }
+  .reference-home .home-hero-shell .hero--fullbleed .hero-backgrounds::after {
+    background: linear-gradient(180deg, rgba(9, 22, 32, .82) 0%, rgba(9, 22, 32, .56) 48%, rgba(9, 22, 32, .22) 72%, rgba(5, 13, 20, .78) 100%);
+  }
   .reference-home .home-hero-shell .hero-image { background-position: 68% center !important; }
   .reference-home .home-hero-shell .hero-slide-image:not(.hero-slide-image--subject-left) img { object-position: 68% center; }
+  .reference-home .home-hero-shell .hero--fullbleed .hero-slide-image img { object-position: 44% center; }
   .reference-home .home-hero-shell .hero-content {
     width: 100%;
     max-width: none;
-    min-height: 670px;
-    padding: 58px var(--hero-gutter) 164px;
+    min-height: 714px;
+    padding: 58px var(--hero-gutter) 208px;
   }
   .reference-home .home-hero-shell .hero--copy-right .hero-content {
     margin-left: 0;
-    padding: 58px var(--hero-gutter) 164px;
+    padding: 58px var(--hero-gutter) 208px;
   }
   .reference-home .home-hero-shell .hero h1 {
     margin: 18px 0;
@@ -425,7 +438,11 @@
   }
   .reference-home .home-hero-shell .hero-slide-pickers {
     grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     justify-self: center;
+    width: 176px;
     margin-right: 0;
   }
   .reference-home .home-hero-shell .hero-bottom { height: 42px; font-size: 8px; }
@@ -446,6 +463,11 @@
   .reference-home .home-hero-shell .hero h1 { margin: 12px 0; font-size: clamp(30px, 6vw, 42px); }
   .reference-home .home-hero-shell .hero-content p { line-height: 1.5; }
   .reference-home .home-hero-shell .hero-actions { margin-top: 16px; }
+}
+
+@media (max-width: 600px) and (max-height: 430px) and (orientation: landscape) {
+  .reference-home .home-hero-shell .hero-content,
+  .reference-home .home-hero-shell .hero--copy-right .hero-content { padding-bottom: 208px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
