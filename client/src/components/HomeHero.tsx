@@ -1,5 +1,6 @@
 import { Component, lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play } from "lucide-react";
+import HeroDepth from "./HeroDepth";
 import "./home-hero-reference.css";
 
 const PlayOrbit = lazy(() => import("./PlayOrbit"));
@@ -291,6 +292,7 @@ export default function HomeHero() {
         </div>)}
       </div>
       <div className="hero-grid" aria-hidden="true" />
+      <HeroDepth key={slide.label} />
       {showOrbit && <DecorativeBoundary><Suspense fallback={null}><PlayOrbit className="hero-orbit" /></Suspense></DecorativeBoundary>}
       <div className="hero-content page-gutter" role="group" aria-roledescription="slide" aria-label={`${active + 1} of ${slides.length}`} aria-live={playing && !hovered ? "off" : "polite"} key={slide.label}>
         <div className="eyebrow hero-eyebrow"><span className="eyebrow-line" /> {slide.eyebrow}</div>

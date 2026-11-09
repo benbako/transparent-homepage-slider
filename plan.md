@@ -72,3 +72,7 @@ Mode: extension. Add one original, high-resolution, concept-labeled sports-exper
 ## Slider image full-view correction
 
 Mode: targeted correction. Preserve the user-supplied original and the existing “One Space Many Ways To Play” slide. Fit the complete original image into its slider area proportionally, with the existing dark background filling any remaining space; keep the text legible, other slides and slider interactions unchanged, and adapt the image placement for narrow screens. Do not alter the source image, logo, site content, or publication settings.
+
+## 5D-inspired motion extension
+
+Mode: extension. Enhance the existing sports-editorial look with a lightweight cinematic depth layer on the homepage hero: gentle, short-lived light trails and layered perspective details, plus subtle pointer-responsive parallax on fine-pointer devices. Add a restrained three-dimensional lift to existing experience cards, complementing the interactive product showroom and 3D orbit already present. Preserve all photographs, including the uncropped slide, copy, routes, controls, logo, responsive layouts and existing contact behavior. Use no new imagery or heavy dependencies, animate transforms/opacity, respect reduced-motion preferences, avoid blocking controls, and keep content available without JavaScript. No publication or domain change.

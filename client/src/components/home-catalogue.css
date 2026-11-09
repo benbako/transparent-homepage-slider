@@ -61,6 +61,7 @@
   flex-direction: column;
   background: #fff;
   border: 1px solid #e4e7e7;
+  transition: transform 260ms cubic-bezier(.16, 1, .3, 1);
 }
 
 .reference-home .home-catalogue__image {
@@ -243,6 +244,10 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .reference-home .home-catalogue__card:hover {
+    transform: perspective(1000px) translateY(-5px) rotateX(1deg) rotateY(-2deg);
+  }
+
   .reference-home .home-catalogue__card:hover img {
     transform: scale(1.035);
   }
@@ -300,12 +305,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .reference-home .home-catalogue__card,
   .reference-home .home-catalogue__image img,
   .reference-home .home-catalogue__card-link,
   .reference-home .home-catalogue .experience-option,
   .reference-home .home-catalogue__all-link svg {
     transition: none;
   }
+  .reference-home .home-catalogue__card:hover,
+  .reference-home .home-catalogue__card:hover img { transform: none; }
 }
 
 /* Match the showroom's small accents to the homepage's warm action color. */

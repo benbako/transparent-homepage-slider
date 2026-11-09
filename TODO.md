@@ -176,3 +176,10 @@ Verification: the 1920 × 1080 concept image is served as a roughly 272 KiB WebP
 - [x] Preserve the original photo, slider copy, controls, other slides, and responsive site behavior.
 
 Verification: the unchanged 2048 × 1152 original is displayed with proportional `contain` sizing and no zoom crop. The full subject and composition were visually checked on desktop and mobile, and the image, text, seven slide selectors, and overflow were checked from 320 to 1440 pixels, including landscape. TypeScript, the test suite, and the static build passed. The live site was not republished.
+
+# Immersive 5D-inspired animation
+
+- [x] Add engaging depth and layered animation to the website, using the existing LJ Sports Tech visual style and 3D features.
+- [x] Keep the site responsive and fast, honor reduced-motion preferences, and preserve the full-view user-supplied photo, all content, logo, links, sliders, accessible controls, and contact behavior.
+
+Verification: lightweight animated hero layers react to mouse movement without intercepting input, and experience cards add a small 3D hover lift; the existing 3D showroom and orbit remain intact. Reduced-motion mode disables the new effects. Desktop and mobile layouts were reviewed; the seven-slide navigation and uncropped supplied photo remain intact, and TypeScript, the automated tests and static build passed. No live-site publication or domain change was made.

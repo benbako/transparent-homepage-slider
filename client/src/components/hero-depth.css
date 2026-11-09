@@ -1,0 +1,97 @@
+/* Decorative layers sit above the photo but below all text and controls. */
+.reference-home .home-hero-shell .hero-depth {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.reference-home .home-hero-shell .hero-depth__rig {
+  position: absolute;
+  right: 5%;
+  bottom: 15%;
+  width: clamp(200px, 30vw, 480px);
+  aspect-ratio: 1;
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.reference-home .home-hero-shell .hero-depth__orbit {
+  position: absolute;
+  inset: 0;
+  opacity: .72;
+  animation: lj-depth-arrive 1.6s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.reference-home .home-hero-shell .hero-depth__orbit span {
+  position: absolute;
+  inset: 13% 0;
+  border: 1px solid rgba(187, 221, 242, .38);
+  border-left-color: transparent;
+  border-bottom-color: rgba(247, 129, 61, .55);
+  border-radius: 50%;
+  transform: rotate(-28deg);
+}
+
+.reference-home .home-hero-shell .hero-depth__orbit--inner {
+  inset: 16%;
+  opacity: .54;
+  animation-delay: 120ms;
+}
+
+.reference-home .home-hero-shell .hero-depth__orbit--inner span {
+  border-color: rgba(130, 195, 232, .36);
+  border-right-color: transparent;
+  transform: rotate(28deg);
+}
+
+.reference-home .home-hero-shell .hero-depth__spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffae76;
+  box-shadow: 0 0 12px 3px rgba(245, 130, 68, .5);
+  animation: lj-depth-spark 1.8s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.reference-home .home-hero-shell .hero-depth__spark--one { top: 21%; left: 24%; }
+.reference-home .home-hero-shell .hero-depth__spark--two { top: 54%; right: 8%; animation-delay: 110ms; }
+.reference-home .home-hero-shell .hero-depth__spark--three { bottom: 19%; left: 30%; animation-delay: 220ms; }
+
+.reference-home .home-hero-shell .hero-depth__trail {
+  position: absolute;
+  right: 4%;
+  bottom: 25%;
+  width: 52%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 179, 129, .8), transparent);
+  transform: rotate(-28deg);
+  animation: lj-depth-trail 1.5s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@keyframes lj-depth-arrive {
+  from { opacity: 0; transform: translate3d(28px, 14px, 0) scale(.92); }
+}
+@keyframes lj-depth-spark {
+  from { opacity: 0; transform: translate3d(20px, 12px, 0) scale(.8); }
+}
+@keyframes lj-depth-trail {
+  from { opacity: 0; transform: translate3d(32px, 18px, 0) rotate(-28deg); }
+  to { opacity: .7; transform: translate3d(0, 0, 0) rotate(-28deg); }
+}
+
+@media (max-width: 900px) {
+  .reference-home .home-hero-shell .hero-depth__rig {
+    right: 7%;
+    bottom: 18%;
+    width: clamp(175px, 37vw, 300px);
+    opacity: .7;
+  }
+  /* Preserve the complete supplied photograph: effects start below it. */
+  .reference-home .home-hero-shell .hero--copy-right .hero-depth { top: calc(100vw * 9 / 16); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reference-home .home-hero-shell .hero-depth { display: none; }
+}
