@@ -80,3 +80,7 @@ Mode: extension. Enhance the existing sports-editorial look with a lightweight c
 ## Interactive slider image and cursor lighting
 
 Mode: extension. Add a new concept-labeled, original sports-experience image to the homepage hero without removing any existing slides or photographs. Reuse the existing restrained navy, orange and blue identity and the hero's lazy loading, pause controls and focus behavior. Add a low-intensity, pointer-following light and particle accent on the new slide using a decorative pointer-transparent layer and requestAnimationFrame-coalesced updates; keep the slide usable without a mouse and with reduced motion. Preserve the previous full-view photo and all routes, text and contact behavior. Do not publish or change the domain.
+
+## Transparent homepage treatment
+
+Mode: extension. Add a glass-panel layer to the existing homepage only: a translucent, blurred header overlay with a light logo capsule, high-contrast navigation and an unchanged orange CTA; softly translucent cards and controls should let the existing navy, orange and image language show through without reducing readability. Keep the current content order, logo, anchor IDs, routes, sliders, 3D effects, contact rail and mobile drawer. Use scoped CSS with solid fallbacks, no new dependencies or imagery, and retain touch targets and keyboard focus styles. No publication or domain change.

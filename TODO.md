@@ -190,3 +190,10 @@ Verification: lightweight animated hero layers react to mouse movement without i
 - [x] Implement subtle particle or lighting effects that respond dynamically to cursor position without overwhelming the scene or blocking controls; retain mobile usability, reduced-motion support and existing slider behavior.
 
 Verification: added an original sports-experience concept slide with an eight-item accessible hero control set. A low-intensity cursor-following glow and three small particles respond through a requestAnimationFrame-coalesced decorative layer; the layer does not intercept controls, fades when the pointer leaves, and is disabled for reduced motion. The image and effect were reviewed in Preview, including mobile layout. The full test suite, TypeScript check, static build and whitespace check passed; 345 pages were prerendered. The live site was not republished.
+
+# Transparent homepage design
+
+- [x] Use a clean, easy-to-navigate homepage layout with transparent elements that enhance the existing visual language without compromising readability.
+- [x] Keep the homepage responsive across desktop, tablet and mobile sizes while preserving the current logo, navigation, content, sliders, 3D elements, contact behavior and accessibility affordances.
+
+Verification: added a homepage-only translucent header overlay with a glass logo capsule, high-contrast navigation, glass slider controls, and restrained translucent solution/audience/contact surfaces with solid fallbacks. The mobile drawer remains scrollable and touch-friendly; the close icon keeps white contrast on the dark open header. Desktop and 320px checks passed with no horizontal overflow. TypeScript, tests, static build, prerendering of 345 pages and whitespace checks passed. No live publication or domain change was made.

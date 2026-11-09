@@ -1,0 +1,139 @@
+/*
+ * Homepage-only transparent surfaces.
+ * These are progressive enhancements: every surface has a readable opaque-ish
+ * fallback before backdrop-filter is applied by capable browsers.
+ */
+.reference-home {
+  position: relative;
+  --glass-ink: #f5f8fa;
+  --glass-border: rgba(255, 255, 255, .2);
+  --glass-shadow: 0 16px 42px rgba(3, 12, 18, .16);
+}
+
+.reference-home > .home-hero-shell {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.reference-home .home-hero-shell .site-header {
+  pointer-events: auto;
+  background: rgba(8, 20, 29, .68);
+  border-bottom: 1px solid rgba(255, 255, 255, .18);
+  box-shadow: 0 10px 28px rgba(3, 12, 18, .12);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .reference-home .home-hero-shell .site-header {
+    background: rgba(8, 20, 29, .48);
+    -webkit-backdrop-filter: blur(16px) saturate(135%);
+    backdrop-filter: blur(16px) saturate(135%);
+  }
+}
+
+.reference-home .home-hero-shell .logo-link {
+  flex-basis: 198px;
+  width: 198px;
+  height: 52px;
+  margin-left: 8px;
+  border: 1px solid rgba(255, 255, 255, .54);
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 8px 22px rgba(1, 9, 14, .13);
+}
+
+.reference-home .home-hero-shell .desktop-nav a {
+  color: rgba(255, 255, 255, .92);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .26);
+}
+
+.reference-home .home-hero-shell .desktop-nav a:hover,
+.reference-home .home-hero-shell .desktop-nav a[aria-current="page"] {
+  color: #ffb27d;
+}
+
+.reference-home .home-hero-shell .header-cta {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .16);
+}
+
+.reference-home .home-hero-shell .hero-slider-controls {
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  background: rgba(7, 18, 27, .38);
+  box-shadow: 0 12px 30px rgba(3, 12, 18, .2);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .reference-home .home-hero-shell .hero-slider-controls {
+    background: rgba(7, 18, 27, .25);
+    -webkit-backdrop-filter: blur(12px) saturate(125%);
+    backdrop-filter: blur(12px) saturate(125%);
+  }
+}
+
+.reference-home .home-lower .hl-solution-card,
+.reference-home .home-lower .hl-audience {
+  border: 1px solid rgba(9, 27, 39, .1);
+  background: rgba(246, 248, 247, .78);
+  box-shadow: 0 12px 32px rgba(8, 25, 34, .06);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .reference-home .home-lower .hl-solution-card,
+  .reference-home .home-lower .hl-audience {
+    -webkit-backdrop-filter: blur(10px) saturate(112%);
+    backdrop-filter: blur(10px) saturate(112%);
+  }
+}
+
+.reference-home .home-lower .hl-contact-card {
+  border: 1px solid rgba(255, 255, 255, .2);
+  background: rgba(255, 255, 255, .08);
+  box-shadow: var(--glass-shadow);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .reference-home .home-lower .hl-contact-card {
+    background: rgba(255, 255, 255, .07);
+    -webkit-backdrop-filter: blur(15px) saturate(130%);
+    backdrop-filter: blur(15px) saturate(130%);
+  }
+}
+
+@media (max-width: 900px) {
+  .reference-home .home-hero-shell .logo-link {
+    flex-basis: 180px;
+    width: 180px;
+    height: 48px;
+    margin-left: 0;
+  }
+
+  .reference-home .home-hero-shell .site-header.site-header--mobile-open {
+    background: rgba(8, 20, 29, .96);
+  }
+
+  .reference-home .home-hero-shell .site-header .menu-toggle {
+    color: #fff;
+  }
+}
+
+@media (max-width: 600px) {
+  .reference-home .home-hero-shell .logo-link {
+    flex-basis: 170px;
+    width: 170px;
+    height: 46px;
+  }
+
+  .reference-home .home-hero-shell .hero-slider-controls {
+    padding: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reference-home .home-lower .hl-solution-image img,
+  .reference-home .home-hero-shell .header-cta {
+    transition: none;
+  }
+}

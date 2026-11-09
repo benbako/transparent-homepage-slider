@@ -7,6 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import type { ProductShowroomItem } from "@/components/ProductShowroom";
 import { projectSlides } from "@/data/project-inspiration";
+import "./homepage-transparency.css";
 
 const experiences: ProductShowroomItem[] = [
   {
