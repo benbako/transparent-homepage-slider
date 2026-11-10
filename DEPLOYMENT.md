@@ -131,9 +131,8 @@ This snippet is only the first step of a project-site migration. Product links, 
 1. Open the repository on GitHub.
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Add the workflow below at `.github/workflows/deploy-pages.yml`.
-5. Commit and push it to the default branch.
-6. Wait for the Actions workflow to finish, then open the Pages URL shown by GitHub.
+4. The workflow is already committed at `.github/workflows/deploy-pages.yml`; it must reach the default branch before it can deploy. Merge it to `main`, or run it once from the Actions tab.
+5. Wait for the Actions workflow to finish, then open the Pages URL shown by GitHub.
 
 ### GitHub Actions workflow
 
@@ -218,6 +217,43 @@ After the workflow completes, test these paths directly instead of checking only
 Also check one original product HTML alias, one `/products/<slug>` page, one `/news/<slug>` page, the homepage hero controls, the mobile product drawer, and the contact form’s mailto behavior.
 
 Because the build emits actual HTML files for public paths, the site does not need a broad SPA fallback for the current production structure. A custom `404.html` can be added later for friendly missing-page messaging, but it should not be used to conceal broken generated routes.
+
+### Custom domain: ljsportstech.com
+
+The site is configured to publish at the root of `ljsportstech.com`, which is why no base-path migration is needed: the root-relative paths in the application match a custom-domain Pages site.
+
+1. Merge the workflow to `main` and let it deploy once. The workflow passes `cname: ljsportstech.com` to `actions/configure-pages`, so GitHub records the custom domain as part of that run.
+2. In **Settings → Pages → Custom domain**, confirm `ljsportstech.com` is listed. If the workflow has not run yet, enter the domain there instead; with an Actions build no `CNAME` file is committed to the repository.
+3. At the DNS provider for `ljsportstech.com`, point the apex domain at GitHub Pages:
+
+   ```text
+   185.199.108.153   A     @
+   185.199.109.153   A     @
+   185.199.110.153   A     @
+   185.199.111.153   A     @
+   2606:50c0:8000::153  AAAA  @
+   2606:50c0:8001::153  AAAA  @
+   2606:50c0:8002::153  AAAA  @
+   2606:50c0:8003::153  AAAA  @
+   benbako.github.io    CNAME  www
+   ```
+
+   Replace any existing `A`/`AAAA` records on `@` rather than adding alongside them, and do not keep a second `CNAME` on `www`. Apex domains cannot use a `CNAME` record, which is why the four `A` records are required.
+4. Wait for GitHub to verify the domain and issue the certificate, then enable **Enforce HTTPS**. Certificate issuance can take up to about an hour after DNS resolves.
+5. Check `https://ljsportstech.com/` and `https://www.ljsportstech.com/` and keep one of them canonical, so the site is not indexed at two addresses.
+
+Verify DNS propagation before assuming a failure:
+
+```bash
+dig +short ljsportstech.com A
+dig +short www.ljsportstech.com CNAME
+```
+
+Until the custom domain is verified, the temporary `https://benbako.github.io/transparent-homepage-slider/` URL is **not** a usable address for this site, because the application links and assets are root-relative.
+
+### Known static-hosting limitation
+
+Hero and section background images are served from the application's managed storage under `/manus-storage/...`, which a static host cannot proxy. On GitHub Pages those images do not load and the sections fall back to their solid backgrounds, exactly as they do in the local preview without a storage backend. The logo degrades to the local `/assets/lj-sports-refined-web.webp` copy. To publish those images, add the files to `client/public/` and reference the local paths.
 
 ## Custom domains and HTTPS
 
