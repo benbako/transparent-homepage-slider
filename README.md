@@ -175,6 +175,8 @@ The approved LJ Sports Tech logo is used through the shared `SiteLogo` component
 
 ## Deployment
 
+For step-by-step Vercel and GitHub Pages instructions, see [`DEPLOYMENT.md`](./DEPLOYMENT.md).
+
 The repository is configured for a static build with:
 
 ```text
